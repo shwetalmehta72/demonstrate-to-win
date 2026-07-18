@@ -1,7 +1,7 @@
 import { useParams, Link } from "wouter";
 import { ALL_MODULES } from "@/lib/moduleData";
 import { useGame, LEVEL_THRESHOLDS } from "@/contexts/GameContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Zap, ChevronRight, Lock, Shield, Activity, Target, Clock, Menu, X, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -118,10 +118,14 @@ export default function ModulePage() {
   const allDone = completedActivities === module.activities.length;
   const progressPct = module.activities.length > 0 ? (completedActivities / module.activities.length) * 100 : 0;
 
-  if (allDone && !state.modules[moduleId]?.completed) {
-    const score = Math.round((completedActivities / module.activities.length) * 100);
-    completeModule(moduleId, score);
-  }
+  // useEffect prevents setState-in-render violation — fires after paint when all activities are done
+  useEffect(() => {
+    if (allDone && !state.modules[moduleId]?.completed) {
+      const score = Math.round((completedActivities / module.activities.length) * 100);
+      completeModule(moduleId, score);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allDone, moduleId]);
 
   const currentActivity = activeActivity ? module.activities.find(a => a.id === activeActivity) : null;
   const isBonus = moduleId >= 8;

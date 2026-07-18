@@ -11,6 +11,7 @@ interface MatchData {
 
 export default function MatchingActivity({ activity, moduleId, onComplete }: { activity: Activity; moduleId: number; onComplete: () => void }) {
   const data = activity.data as unknown as MatchData;
+  if (!data?.pairs?.length) return <div className="p-6 text-white/40 text-sm font-mono-custom">// ACTIVITY DATA UNAVAILABLE</div>;
   const { completeActivity, isActivityCompleted } = useGame();
   const alreadyDone = isActivityCompleted(moduleId, activity.id);
   const [shuffledRight] = useState(() => [...data.pairs].sort(() => Math.random() - 0.5));

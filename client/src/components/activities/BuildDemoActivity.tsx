@@ -12,6 +12,7 @@ interface BuildData {
 
 export default function BuildDemoActivity({ activity, moduleId, onComplete }: { activity: Activity; moduleId: number; onComplete: () => void }) {
   const data = activity.data as unknown as BuildData;
+  if (!data?.template?.length) return <div className="p-6 text-white/40 text-sm font-mono-custom">// ACTIVITY DATA UNAVAILABLE</div>;
   const { completeActivity, isActivityCompleted } = useGame();
   const alreadyDone = isActivityCompleted(moduleId, activity.id);
   const [values, setValues] = useState<Record<string, string>>({});

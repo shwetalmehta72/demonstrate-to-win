@@ -18,6 +18,7 @@ interface FillData {
 
 export default function FillBlankActivity({ activity, moduleId, onComplete }: { activity: Activity; moduleId: number; onComplete: () => void }) {
   const data = activity.data as unknown as FillData;
+  if (!data?.corrections?.length) return <div className="p-6 text-white/40 text-sm font-mono-custom">// ACTIVITY DATA UNAVAILABLE</div>;
   const { completeActivity, isActivityCompleted } = useGame();
   const alreadyDone = isActivityCompleted(moduleId, activity.id);
   const [values, setValues] = useState<Record<string, string>>({});
