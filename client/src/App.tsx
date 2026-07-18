@@ -7,12 +7,18 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { GameProvider } from "./contexts/GameContext";
 import Home from "./pages/Home";
 import ModulePage from "./pages/ModulePage";
+import LibraryPage from "./pages/LibraryPage";
+import FieldNotesPage from "./pages/FieldNotesPage";
+import CertificationPage from "./pages/CertificationPage";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/module/:id" component={ModulePage} />
+      <Route path="/library" component={LibraryPage} />
+      <Route path="/field-notes" component={FieldNotesPage} />
+      <Route path="/certification" component={CertificationPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

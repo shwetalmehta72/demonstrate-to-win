@@ -725,3 +725,503 @@ export const MODULES: Module[] = [
     ]
   }
 ];
+// ─── BONUS MODULES ────────────────────────────────────────────────────────────
+// These modules draw from complementary methodologies: The Six Habits of Highly
+// Effective Sales Engineers (Chris White), The Challenger Sale (Dixon & Adamson),
+// MEDDPICC qualification framework, and SPIN Selling (Neil Rackham).
+
+export const BONUS_MODULES: Module[] = [
+  {
+    id: 8,
+    slug: "six-habits",
+    title: "The Six Habits",
+    subtitle: "Partner · Probe · Prepare · Practice · Perform · Perfect",
+    tagline: "From Chris White's Six Habits of Highly Effective Sales Engineers",
+    icon: "⚡",
+    accentColor: "teal",
+    estimatedMinutes: 30,
+    xpReward: 300,
+    keyConceptSummary: "Chris White's Six Habits framework defines the disciplines that separate good SEs from great ones. The habits are: Partner (own the technical win), Probe (deep discovery), Prepare (obsessive readiness), Practice (deliberate rehearsal), Perform (presence and execution), and Perfect (continuous improvement). Together they form a complete operating system for the SE role.",
+    aiContext: "In AI sales, the 'Partner' habit is especially critical — AI deals require deep technical credibility and tight AE alignment. The 'Probe' habit must go deeper than traditional software: you need to understand not just the business problem, but the data landscape, model governance concerns, and change management readiness.",
+    activities: [
+      {
+        id: "habits-match",
+        type: "matching",
+        title: "Match the Habit to the Scenario",
+        description: "Each scenario below represents an SE failing at one of the Six Habits. Match each scenario to the habit being neglected.",
+        xp: 75,
+        data: {
+          pairs: [
+            { id: "h1", current: "Your AE booked a demo without telling you the prospect's industry or use case. You walk in cold and the demo misses the mark.", future: "PARTNER — Own the technical win. You should have required a pre-call with the AE to align on discovery findings before any demo." },
+            { id: "h2", current: "You show a stunning AI demo, but the prospect says 'impressive, but I'm not sure this solves our actual problem.' You never asked about their current workflow.", future: "PROBE — Deep discovery is non-negotiable. You must understand the current state, desired state, and business impact before building a demo narrative." },
+            { id: "h3", current: "Your demo environment crashes 10 minutes in. You didn't test it the day before. The prospect loses confidence.", future: "PREPARE — Obsessive readiness means testing every click path, every data set, and every integration the day before — never the morning of." },
+            { id: "h4", current: "You've given this demo 50 times but you still stumble on the same transition between modules 2 and 3. You've never rehearsed that specific handoff.", future: "PRACTICE — Deliberate practice means identifying your weak spots and drilling them specifically, not just running through the full demo repeatedly." },
+            { id: "h5", current: "During the demo, a key stakeholder asks a tough question and you visibly panic, lose your place, and rush through the rest.", future: "PERFORM — Presence and composure under pressure is a skill. Use the 'Stop, Don't Answer That' technique: pause, clarify the question, then answer calmly." },
+          ]
+        }
+      },
+      {
+        id: "habits-quiz",
+        type: "quiz",
+        title: "Six Habits Knowledge Check",
+        description: "Test your understanding of Chris White's Six Habits framework applied to AI sales engineering.",
+        xp: 75,
+        data: {
+          questions: [
+            {
+              id: "q1",
+              question: "According to the Six Habits, who is responsible for the 'technical win' in a deal?",
+              options: [
+                "The Account Executive — they own the full deal",
+                "The Sales Engineer — they own the technical win",
+                "The Sales Manager — they coordinate both",
+                "It's a shared responsibility with no clear owner"
+              ],
+              correct: 1,
+              explanation: "Chris White is explicit: the SE owns the technical win. This means the SE is accountable for ensuring the prospect is technically convinced. The AE owns the commercial relationship; the SE owns technical credibility and proof."
+            },
+            {
+              id: "q2",
+              question: "The 'Probe' habit is about more than asking questions. What is its deeper purpose in AI sales?",
+              options: [
+                "To fill time before the demo starts",
+                "To qualify whether the prospect can afford the solution",
+                "To understand the current state, desired state, and business impact so deeply that the demo writes itself",
+                "To identify the economic buyer as quickly as possible"
+              ],
+              correct: 2,
+              explanation: "Probing in AI sales must uncover: the current data landscape, the specific workflow being automated, the governance and compliance requirements, the change management readiness, and the quantifiable business impact. When you probe deeply enough, the demo narrative becomes obvious."
+            },
+            {
+              id: "q3",
+              question: "What does 'Perfect' mean as the sixth habit?",
+              options: [
+                "Delivering a flawless demo with zero mistakes",
+                "Continuously improving by reviewing every demo, identifying what worked and what didn't, and adjusting",
+                "Achieving 100% technical win rate",
+                "Memorizing every feature of the product"
+              ],
+              correct: 1,
+              explanation: "Perfect is about continuous improvement, not perfection. After every demo, top SEs do a brief post-mortem: What landed? What confused? What question caught me off guard? This deliberate reflection compounds into mastery over time."
+            },
+            {
+              id: "q4",
+              question: "An AE tells you 'just run your standard demo, I'll handle the business side.' What should you do?",
+              options: [
+                "Trust the AE — they know the customer best",
+                "Run the standard demo but add extra features to impress",
+                "Insist on a 15-minute pre-call to review discovery findings, stakeholder map, and demo objectives before agreeing to present",
+                "Ask the prospect directly at the start of the demo what they want to see"
+              ],
+              correct: 2,
+              explanation: "The Partner habit means you don't walk into a demo blind. A 15-minute pre-call with the AE is non-negotiable. Without it, you're guessing at what matters to the prospect — and in AI demos, a generic demo is almost always a losing demo."
+            }
+          ]
+        }
+      },
+      {
+        id: "habits-scenario",
+        type: "scenario",
+        title: "The Habit Under Fire",
+        description: "Real SE situations that test multiple habits at once. Choose the response that best demonstrates the Six Habits principles.",
+        xp: 100,
+        data: {
+          scenarios: [
+            {
+              id: "s1",
+              setup: "You're 5 minutes into an AI demo when the VP of Engineering says: 'Before we go further — can you tell me how your model handles data that doesn't match the training distribution? We have a lot of edge cases.' You weren't expecting this question and don't have a perfect answer.",
+              options: [
+                { id: "a", text: "Bluff through an answer using general ML knowledge and hope they don't push back.", quality: "poor", feedback: "Bluffing with a technical audience destroys credibility instantly. Engineers can detect uncertainty. This violates the Perform and Partner habits." },
+                { id: "b", text: "\"That's a great question and it's exactly the kind of thing we should go deep on. I want to give you a precise answer rather than a general one — can I follow up with our ML team and get you a detailed technical brief by end of week?\"", quality: "excellent", feedback: "This is the Perform habit in action: composure, honesty, and a clear commitment. Saying 'I'll get you a precise answer' is more credible than a vague answer. It also opens a follow-up touchpoint." },
+                { id: "c", text: "Skip the question and continue the demo, planning to address it in the Q&A.", quality: "poor", feedback: "Ignoring a direct question from a VP of Engineering signals you don't have an answer. They will mentally check out for the rest of the demo." },
+                { id: "d", text: "\"Good question. Let me show you the model monitoring dashboard — it surfaces distribution drift and flags anomalous inputs in real time.\" Then navigate to that section of the demo.", quality: "good", feedback: "Pivoting to a relevant demo section is smart if you have it. It shows rather than tells. The only improvement would be explicitly acknowledging the edge case concern before pivoting." },
+              ]
+            },
+            {
+              id: "s2",
+              setup: "After a strong demo, you do a post-mortem and realize you lost the technical win. The prospect chose a competitor. Your AE says 'their product was just cheaper.' But you suspect the real issue was that you never addressed their data governance concerns.",
+              options: [
+                { id: "a", text: "Accept the AE's explanation and move on to the next deal.", quality: "poor", feedback: "This violates the Perfect habit. Accepting a surface-level explanation means you'll repeat the same mistake. You need to dig deeper." },
+                { id: "b", text: "Request a 15-minute debrief with the prospect's technical champion to understand the real decision criteria, then document the findings for the team.", quality: "excellent", feedback: "This is the Perfect habit at its best. A win/loss debrief with the technical champion gives you ground truth. Documenting it for the team turns your loss into a team learning." },
+                { id: "c", text: "Update your demo to include a data governance section going forward.", quality: "good", feedback: "Good instinct, but without confirming the real reason for the loss, you might be solving the wrong problem. Validate first, then update." },
+                { id: "d", text: "Escalate to your manager and ask for better demo tools.", quality: "poor", feedback: "Blaming tools is a deflection. The Perfect habit requires honest self-assessment before looking for external explanations." },
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    id: 9,
+    slug: "challenger-se",
+    title: "The Challenger SE",
+    subtitle: "Teach · Tailor · Take Control",
+    tagline: "From The Challenger Sale by Dixon & Adamson",
+    icon: "⚔️",
+    accentColor: "amber",
+    estimatedMinutes: 30,
+    xpReward: 300,
+    keyConceptSummary: "The Challenger Sale research found that the highest-performing salespeople don't just build relationships — they teach prospects something new about their business, tailor their message to each stakeholder, and take control of the sales conversation. For SEs, this means bringing insight-led demos that reframe how the prospect thinks about their problem, not just showing features.",
+    aiContext: "AI is the perfect domain for Challenger selling. Most buyers don't know what's possible with AI — they're anchored to their current manual processes. A Challenger SE uses the demo to teach: 'Did you know that 73% of the time your team spends on X is now automatable? Let me show you what that looks like.' This reframe creates urgency that relationship-building alone never could.",
+    activities: [
+      {
+        id: "challenger-quiz",
+        type: "quiz",
+        title: "Challenger Methodology Quiz",
+        description: "Test your understanding of the Teach-Tailor-Take Control framework applied to AI SE demos.",
+        xp: 75,
+        data: {
+          questions: [
+            {
+              id: "q1",
+              question: "What does 'Teach' mean in the Challenger Sale context for an SE?",
+              options: [
+                "Educating the prospect on how to use your product",
+                "Providing a product tutorial during the demo",
+                "Bringing a commercial insight that reframes how the prospect thinks about their business problem — ideally something they didn't know before",
+                "Explaining the technical architecture of your AI solution"
+              ],
+              correct: 2,
+              explanation: "Challenger 'Teaching' is about commercial insight, not product education. The best SE opening isn't 'let me show you our platform' — it's 'did you know that companies in your industry are losing X% of revenue to Y problem, and AI is now solving it in Z way?' This reframe creates urgency and positions you as a strategic advisor."
+            },
+            {
+              id: "q2",
+              question: "You're demoing an AI fraud detection platform to a bank. The CFO cares about cost reduction; the CISO cares about compliance; the VP of Operations cares about analyst productivity. What does 'Tailor' require you to do?",
+              options: [
+                "Create three separate demos for each stakeholder",
+                "Focus only on the CFO since they control the budget",
+                "Deliver the same demo but use different language for each stakeholder — connecting the same features to each person's specific priorities",
+                "Ask the group which topic they want to focus on"
+              ],
+              correct: 2,
+              explanation: "Tailoring doesn't mean three different demos — it means one demo with three lenses. When you show the fraud detection dashboard, you say: 'For your compliance team, this audit trail satisfies SOX requirements. For your analysts, this cuts investigation time from 4 hours to 20 minutes. For your CFO, that's $2M in annual labor savings.' Same feature, three stakeholder-specific value statements."
+            },
+            {
+              id: "q3",
+              question: "A prospect says 'we're not really looking to buy anything right now, we're just evaluating options.' A Challenger SE should:",
+              options: [
+                "Respect their timeline and present a low-pressure overview",
+                "Immediately ask about their budget and decision timeline",
+                "Use a commercial insight to create urgency: show them the cost of their current approach and what competitors are doing differently",
+                "End the meeting early since they're not ready to buy"
+              ],
+              correct: 2,
+              explanation: "The Challenger 'Takes Control' by creating constructive tension. 'Just evaluating' often means they haven't quantified the cost of inaction. A Challenger SE responds: 'I understand — let me share what we're seeing in your industry. Companies still using manual X are losing Y per quarter to Z. The ones who moved to AI 18 months ago are now Y% ahead. I want to show you what that gap looks like for your team.'"
+            },
+            {
+              id: "q4",
+              question: "What is 'constructive tension' in the Challenger Sale?",
+              options: [
+                "Creating conflict with the prospect to test their commitment",
+                "Challenging the prospect's assumptions in a way that makes them uncomfortable enough to reconsider their current approach",
+                "Pushing back on price objections aggressively",
+                "Disagreeing with the prospect's technical requirements"
+              ],
+              correct: 1,
+              explanation: "Constructive tension is the deliberate act of challenging a prospect's status quo in a respectful, insight-driven way. It's not confrontational — it's educational. 'Most teams think they need X, but our data shows the real bottleneck is Y. Let me show you why.' This is how Challenger SEs create urgency without pressure."
+            }
+          ]
+        }
+      },
+      {
+        id: "challenger-scenario",
+        type: "scenario",
+        title: "Teach, Tailor, Take Control in Action",
+        description: "Apply the Challenger framework to real AI demo situations. Choose the response that best demonstrates Challenger principles.",
+        xp: 100,
+        data: {
+          scenarios: [
+            {
+              id: "s1",
+              setup: "You're opening a demo for a VP of Supply Chain at a manufacturing company. They've asked to see your AI demand forecasting platform. Before you share your screen, what's the strongest Challenger opening?",
+              options: [
+                { id: "a", text: "\"Thanks for having us. Let me start by walking you through our platform overview, then we'll get into the demand forecasting capabilities.\"", quality: "poor", feedback: "This is a relationship-builder opening, not a Challenger opening. It starts with your product, not their world. No insight, no reframe, no urgency." },
+                { id: "b", text: "\"Before I show you anything, I want to share something we're seeing across our manufacturing customers. Companies using traditional statistical forecasting are missing demand signals by an average of 23% — and that gap is getting wider as supply chains get more complex. The ones using AI are cutting that error rate to under 8%. I want to show you what that difference looks like in your world.\"", quality: "excellent", feedback: "This is a textbook Challenger opening. You led with a commercial insight (23% miss rate), created urgency (gap is widening), positioned AI as the solution, and promised a relevant demo. The prospect is now leaning forward." },
+                { id: "c", text: "\"What's your current forecasting process? I want to make sure I show you the most relevant features.\"", quality: "good", feedback: "Discovery-first is solid, but at this stage (demo meeting) you should already know their process from earlier discovery. A Challenger uses that knowledge to open with insight, not more questions." },
+                { id: "d", text: "\"Our AI forecasting platform is used by 200+ manufacturers. Let me show you why they chose us.\"", quality: "poor", feedback: "Social proof is weak as an opener. It's about you, not them. A Challenger opens with the prospect's world, not your customer list." },
+              ]
+            },
+            {
+              id: "s2",
+              setup: "Halfway through your AI analytics demo, the Head of Data says: 'We already have a BI tool that does most of this.' You know their BI tool is 5 years old and can't handle real-time data. How do you respond?",
+              options: [
+                { id: "a", text: "\"You're right, there is some overlap. Let me show you the features that are unique to our platform.\"", quality: "poor", feedback: "Conceding the comparison without challenging it is a Relationship Builder response. You're letting the prospect anchor to their existing tool without showing them what they're missing." },
+                { id: "b", text: "\"I appreciate that — and I want to be direct with you. The BI tools built 5 years ago were designed for batch data and historical reporting. What I'm about to show you operates on streaming data and generates predictions in milliseconds. They're solving different problems. Let me show you the gap.\"", quality: "excellent", feedback: "This is Challenger 'Taking Control.' You respectfully challenged their comparison, reframed the category, and pivoted to a demo that proves the difference. You didn't back down — you leaned in with evidence." },
+                { id: "c", text: "\"What does your current BI tool struggle with? I want to make sure I'm showing you the right things.\"", quality: "good", feedback: "Good pivot to discovery, but at this point in the demo you should be showing, not asking. A Challenger would make the distinction visible through the demo itself." },
+                { id: "d", text: "\"Our platform is actually very different from traditional BI. We're an AI-native solution.\"", quality: "poor", feedback: "Saying 'we're different' without proving it is a missed opportunity. Show the difference — don't just claim it." },
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: "challenger-build",
+        type: "build-demo",
+        title: "Build Your Challenger Opening",
+        description: "Construct a Challenger-style opening for an AI demo. Lead with insight, not product.",
+        xp: 75,
+        data: {
+          scenario: "You're opening a demo for a Director of Customer Success at a SaaS company. They want to see your AI-powered churn prediction platform. In discovery, you learned they have 18% annual churn and their CS team manually reviews accounts monthly.",
+          template: [
+            { id: "insight", label: "The Commercial Insight", placeholder: "Share something they probably don't know about their industry or problem...", hint: "Lead with a data point, trend, or benchmark that reframes their situation. Make it specific to their industry.", example: "\"We analyzed 200 SaaS companies with similar ARR. The ones still using manual monthly reviews are catching churn signals an average of 47 days too late — after the customer has already mentally checked out.\"" },
+            { id: "reframe", label: "The Reframe", placeholder: "Challenge their current assumption or approach...", hint: "Show them why their current approach is the problem, not just insufficient.", example: "\"Monthly reviews made sense when your customer base was 500 accounts. At 5,000 accounts, the signal-to-noise ratio makes manual review statistically unreliable. You're essentially sampling, not monitoring.\"" },
+            { id: "bridge_to_demo", label: "The Bridge to Demo", placeholder: "Connect the insight to what you're about to show...", hint: "Promise a specific outcome they'll see in the demo — make it feel inevitable.", example: "\"Today I want to show you how your CS team can move from monthly reviews to real-time risk scoring — so you're having the retention conversation 6 weeks earlier, when it still matters.\"" },
+          ]
+        }
+      }
+    ]
+  },
+  {
+    id: 10,
+    slug: "meddpicc-mastery",
+    title: "MEDDPICC Mastery",
+    subtitle: "Qualify Every Deal Like a Pro",
+    tagline: "Metrics · Economic Buyer · Decision Criteria · Decision Process · Implicate Pain · Champion · Competition",
+    icon: "🎖️",
+    accentColor: "purple",
+    estimatedMinutes: 35,
+    xpReward: 350,
+    keyConceptSummary: "MEDDPICC is the gold-standard qualification framework for complex B2B sales. It ensures you never waste a demo on an unqualified opportunity. Each letter represents a critical piece of information: Metrics (quantified business impact), Economic Buyer (who controls the budget), Decision Criteria (how they'll choose), Decision Process (how they'll decide), Implicate Pain (the cost of inaction), Champion (your internal advocate), and Competition (who else is in the deal).",
+    aiContext: "AI deals are particularly prone to 'demo theater' — impressive demonstrations that never convert because the deal was never properly qualified. AI budgets are often unallocated, decision processes involve data governance committees, and champions need to be technically credible enough to defend the solution internally. MEDDPICC discipline is what separates AI SEs who win from those who just demo.",
+    activities: [
+      {
+        id: "meddpicc-drag",
+        type: "drag-drop",
+        title: "Build the MEDDPICC Map",
+        description: "A deal is in progress. Organize these discovery findings into the correct MEDDPICC categories to build a complete qualification picture.",
+        xp: 80,
+        data: {
+          items: [
+            { id: "a", text: "\"Reducing manual data processing time by 60% would save us approximately $1.2M annually in labor costs.\"", phase: "metrics" },
+            { id: "b", text: "The CFO has final sign-off on any purchase over $500K. She hasn't been in any of our meetings yet.", phase: "economic-buyer" },
+            { id: "c", text: "\"We need native integration with Salesforce and SOC 2 Type II compliance. Those are non-negotiables.\"", phase: "decision-criteria" },
+            { id: "d", text: "\"We'll do a 30-day POC, then a technical review with our data team, then a business case review with the CFO. We want to be live by Q3.\"", phase: "decision-process" },
+            { id: "e", text: "\"Every quarter we miss our SLA targets, we pay $200K in penalties. Last year we paid $800K in penalties.\"", phase: "implicate-pain" },
+            { id: "f", text: "The VP of Operations has been our main contact. She's been sharing our materials internally and pushed to get the CFO meeting scheduled.", phase: "champion" },
+            { id: "g", text: "\"We're also looking at Vendor X and doing an internal build evaluation with our engineering team.\"", phase: "competition" },
+          ],
+          correctOrder: ["a", "b", "c", "d", "e", "f", "g"],
+          phases: [
+            { id: "metrics", label: "Metrics", color: "teal", description: "Quantified business impact" },
+            { id: "economic-buyer", label: "Economic Buyer", color: "amber", description: "Budget decision-maker" },
+            { id: "decision-criteria", label: "Decision Criteria", color: "emerald", description: "How they'll choose" },
+            { id: "decision-process", label: "Decision Process", color: "purple", description: "How they'll decide" },
+            { id: "implicate-pain", label: "Implicate Pain", color: "red", description: "Cost of inaction" },
+            { id: "champion", label: "Champion", color: "teal", description: "Internal advocate" },
+            { id: "competition", label: "Competition", color: "amber", description: "Who else is in the deal" },
+          ]
+        }
+      },
+      {
+        id: "meddpicc-quiz",
+        type: "quiz",
+        title: "MEDDPICC Qualification Quiz",
+        description: "Test your ability to apply MEDDPICC to real AI deal scenarios.",
+        xp: 90,
+        data: {
+          questions: [
+            {
+              id: "q1",
+              question: "You've had 4 great demos with a prospect. They love the product. But you've never met the Economic Buyer. What should you do?",
+              options: [
+                "Keep building momentum with the champion — they'll bring in the EB when ready",
+                "Send a compelling proposal and hope the champion can sell it internally",
+                "Explicitly ask your champion: 'Who has final budget authority for this decision? I want to make sure we're addressing their specific concerns.' Then work with the champion to get that meeting.",
+                "Assume the champion has budget authority since they've been so engaged"
+              ],
+              correct: 2,
+              explanation: "Never assume budget authority. In AI deals, the Economic Buyer is often a CFO, CTO, or board member who hasn't been in any meetings. Without their buy-in, even the most enthusiastic champion can't close the deal. Work with your champion to get the EB meeting — it's a qualification requirement, not a nice-to-have."
+            },
+            {
+              id: "q2",
+              question: "A prospect says 'we need to see ROI within 6 months.' This is most relevant to which MEDDPICC element?",
+              options: [
+                "Decision Criteria — it's a requirement they're evaluating vendors on",
+                "Metrics — it defines the quantified business outcome they need",
+                "Decision Process — it's part of their evaluation timeline",
+                "Both Metrics and Decision Criteria"
+              ],
+              correct: 3,
+              explanation: "This statement maps to both Metrics (they need a quantifiable ROI) and Decision Criteria (6-month ROI is a requirement for selection). In your demo, you should show how your AI solution delivers measurable ROI within that timeframe — and document it as a formal evaluation criterion."
+            },
+            {
+              id: "q3",
+              question: "What is the difference between a 'Coach' and a 'Champion' in MEDDPICC?",
+              options: [
+                "A Coach is senior; a Champion is junior",
+                "A Coach gives you information; a Champion actively sells on your behalf internally and has credibility with the Economic Buyer",
+                "They are the same thing — the terms are interchangeable",
+                "A Champion is the technical evaluator; a Coach is the business sponsor"
+              ],
+              correct: 1,
+              explanation: "This is a critical distinction. A Coach is helpful — they share org charts, tell you who to call, and give you intel. But a Champion goes further: they advocate for you in rooms you're not in, they have credibility with the Economic Buyer, and they have a personal stake in the outcome. In AI deals, your Champion should be able to defend your solution's technical approach to the data team."
+            },
+            {
+              id: "q4",
+              question: "You discover your prospect is also evaluating an internal build option. How does this affect your demo strategy?",
+              options: [
+                "It doesn't — just show the best demo you can",
+                "Focus entirely on features and technical depth to outshine the internal option",
+                "Reframe the demo around build vs. buy economics: total cost of ownership, time-to-value, and ongoing maintenance — not just features",
+                "Reduce your price to make the build option less attractive"
+              ],
+              correct: 2,
+              explanation: "Internal builds are a unique competitor. Feature comparisons don't win against 'we could build this.' What wins is the build vs. buy economic argument: 'Building this takes 18 months and $2M in engineering time. We're live in 90 days. Your engineers can spend those 18 months on your core product instead.' This is MEDDPICC Competition intelligence driving your demo strategy."
+            }
+          ]
+        }
+      },
+      {
+        id: "meddpicc-scenario",
+        type: "scenario",
+        title: "The Qualification Crisis",
+        description: "A deal is at risk. Use MEDDPICC to diagnose the problem and choose the right response.",
+        xp: 100,
+        data: {
+          scenarios: [
+            {
+              id: "s1",
+              setup: "Your champion emails you: 'I have bad news. The CFO just put a freeze on all new software purchases over $100K. Our deal is $400K. I'm not sure what to do.' You've been working this deal for 3 months.",
+              options: [
+                { id: "a", text: "Accept the news and put the deal on hold until the freeze lifts.", quality: "poor", feedback: "Passive acceptance means the deal dies. Budget freezes are often not absolute — they have exceptions. You need to find the path around the freeze." },
+                { id: "b", text: "Ask your champion: 'Is there a process for exceptions to the freeze? And can we reframe this as a cost-reduction investment — where the AI savings offset the cost within 90 days?' Then request a meeting with the CFO to present the ROI case directly.", quality: "excellent", feedback: "This is MEDDPICC in action. You're using Metrics (ROI within 90 days) to reframe the deal as cost-neutral, working with your Champion to navigate the Decision Process, and going directly to the Economic Buyer. Freezes have exceptions — your job is to be the exception." },
+                { id: "c", text: "Offer a significant discount to get under the $100K threshold.", quality: "poor", feedback: "Discounting to $100K on a $400K deal destroys your margin and signals desperation. It also doesn't solve the underlying qualification gap — you never had the Economic Buyer engaged." },
+                { id: "d", text: "Ask your champion to escalate internally and see if the freeze can be waived for your deal.", quality: "good", feedback: "Reasonable, but passive. You're putting all the work on your champion without giving them ammunition. Arm your champion with a compelling ROI case and offer to present it directly to the CFO." },
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    id: 11,
+    slug: "spin-selling",
+    title: "SPIN Selling for SEs",
+    subtitle: "Ask Better Questions, Win More Deals",
+    tagline: "From SPIN Selling by Neil Rackham",
+    icon: "🔄",
+    accentColor: "emerald",
+    estimatedMinutes: 30,
+    xpReward: 300,
+    keyConceptSummary: "Neil Rackham's SPIN Selling research, based on 35,000 sales calls, found that the best salespeople don't pitch — they ask four types of questions that lead the prospect to articulate their own need for your solution. SPIN stands for: Situation (understand the current state), Problem (surface the pain), Implication (expand the pain), and Need-Payoff (let the prospect articulate the value of solving it).",
+    aiContext: "SPIN Selling is transformative for AI SE discovery because AI buyers often don't know what they need. They know they have a problem, but they haven't connected it to an AI solution. SPIN questions guide them from 'we have a data problem' to 'we need an AI solution that does X' — in their own words. When a prospect articulates the need themselves, they own the solution.",
+    activities: [
+      {
+        id: "spin-match",
+        type: "matching",
+        title: "Identify the SPIN Question Type",
+        description: "Match each discovery question to its SPIN category. Understanding which type of question to ask — and when — is the foundation of effective SE discovery.",
+        xp: 70,
+        data: {
+          pairs: [
+            { id: "s1", current: "\"How many data analysts do you currently have on your team, and what tools are they using today?\"", future: "SITUATION — Establishes the current state. Use early in discovery to understand the landscape before probing for problems." },
+            { id: "s2", current: "\"Where does your current reporting process break down? What do your analysts spend the most time on that they wish they didn't have to?\"", future: "PROBLEM — Surfaces the pain. Ask after you understand the situation. Look for inefficiencies, frustrations, and manual work." },
+            { id: "s3", current: "\"When your analysts are spending 3 days building that report manually, what decisions are being delayed? What's the downstream impact on the business?\"", future: "IMPLICATION — Expands the pain. Shows the prospect how their problem is bigger than they thought. This is the most powerful SPIN question type." },
+            { id: "s4", current: "\"If your team could get that report in 30 minutes instead of 3 days, how would that change your ability to respond to market changes?\"", future: "NEED-PAYOFF — Lets the prospect articulate the value. They describe the benefit in their own words, which is far more powerful than you describing it for them." },
+            { id: "s5", current: "\"You mentioned the manual process costs 3 days per report. How many reports does your team run per month, and what's the fully-loaded cost of that analyst time?\"", future: "IMPLICATION — Quantifies the pain. Turning a qualitative problem into a dollar figure makes the cost of inaction concrete and urgent." },
+          ]
+        }
+      },
+      {
+        id: "spin-quiz",
+        type: "quiz",
+        title: "SPIN Selling Mastery Quiz",
+        description: "Test your understanding of the SPIN framework applied to AI solution discovery.",
+        xp: 80,
+        data: {
+          questions: [
+            {
+              id: "q1",
+              question: "Why are Implication questions the most powerful in the SPIN framework?",
+              options: [
+                "They are the most difficult to answer, which shows the prospect you're thorough",
+                "They expand the prospect's perception of their problem, making the cost of inaction feel larger than the cost of change",
+                "They help you qualify the prospect's budget",
+                "They are the questions that lead directly to a demo request"
+              ],
+              correct: 1,
+              explanation: "Rackham's research found that Implication questions are the single biggest differentiator between top performers and average performers in complex sales. They work by making the prospect feel the full weight of their problem — not just the surface symptom, but the cascading business impact. When the pain feels large enough, change becomes inevitable."
+            },
+            {
+              id: "q2",
+              question: "A prospect says 'our data quality is inconsistent.' What's the best SPIN follow-up?",
+              options: [
+                "\"Let me show you how our AI handles data quality issues.\" (Move to demo)",
+                "\"How long has this been a problem?\" (Situation)",
+                "\"When your AI models are trained on inconsistent data, what happens to the predictions? How does that affect the decisions your team makes downstream?\" (Implication)",
+                "\"What data quality tools are you currently using?\" (Situation)"
+              ],
+              correct: 2,
+              explanation: "The prospect has identified a Problem. The SPIN sequence says: don't jump to the demo yet — ask Implication questions to expand the pain. 'Inconsistent data quality' sounds manageable. 'AI models trained on bad data producing wrong predictions that cause bad business decisions' sounds urgent. That's the Implication question's job."
+            },
+            {
+              id: "q3",
+              question: "What is the purpose of Need-Payoff questions?",
+              options: [
+                "To ask the prospect if they're ready to buy",
+                "To get the prospect to articulate the value of solving their problem in their own words",
+                "To present your product's ROI calculator",
+                "To qualify the prospect's budget and timeline"
+              ],
+              correct: 1,
+              explanation: "Need-Payoff questions are the SPIN framework's closing move. Instead of you saying 'our AI will save you $1M,' you ask 'if you could eliminate that manual process, what would that mean for your team?' When the prospect says 'we'd save $1M and my team could focus on strategic work' — they've sold themselves. Their words are infinitely more credible than yours."
+            },
+            {
+              id: "q4",
+              question: "You're in a discovery call and the prospect says 'we're happy with our current process.' What SPIN approach do you take?",
+              options: [
+                "Accept their answer and move on — they're not a good fit",
+                "Immediately show them your product to change their mind",
+                "Ask Situation questions to understand their current process in detail, then ask Problem questions to surface the inefficiencies they may not have articulated",
+                "Ask them directly: 'Are you sure? Most companies have problems with this.'"
+              ],
+              correct: 2,
+              explanation: "Prospects who say they're 'happy' often haven't quantified their pain. SPIN starts with Situation questions to understand the current state in detail. As you probe deeper, Problem questions surface the inefficiencies they've normalized. 'How long does that report take?' 'What happens when the data is wrong?' — these questions reveal pain the prospect didn't know they had."
+            }
+          ]
+        }
+      },
+      {
+        id: "spin-fill",
+        type: "fill-blank",
+        title: "Complete the SPIN Discovery Sequence",
+        description: "Fill in the missing SPIN questions in this AI discovery conversation to complete the sequence.",
+        xp: 100,
+        data: {
+          context: "You're in a discovery call with a VP of Finance at a mid-market company. They've mentioned they struggle with financial forecasting accuracy.",
+          blanks: [
+            {
+              id: "b1",
+              before: "SE: 'How does your team currently build your quarterly financial forecasts?'\nVP: 'We use Excel and pull data from 4 different systems manually. It takes about 2 weeks each quarter.'\nSE: [SITUATION FOLLOW-UP]",
+              after: "\nVP: 'About 6 people, roughly 40% of their time during forecast cycles.'\nSE: 'And how accurate are those forecasts typically?'\nVP: 'Maybe 65-70% accurate. We're often surprised by actuals.'",
+              answer: "How many people are involved in that process, and what percentage of their time does it consume?",
+              hint: "Ask a Situation question that quantifies the current state — people, time, or resources involved.",
+              explanation: "This Situation question quantifies the resource cost of the current process. '6 people at 40% of their time' becomes the baseline for your ROI calculation later."
+            },
+            {
+              id: "b2",
+              before: "SE: 'When your forecast is off by 30-35%, what happens?'\nVP: 'We have to replan mid-quarter. It's disruptive.'\nSE: [IMPLICATION QUESTION]",
+              after: "\nVP: 'Honestly, yes. We've had to delay two product launches this year because we misread demand. And the board gets nervous when we miss guidance.'\nSE: 'So missed forecasts are affecting your product roadmap and your relationship with the board?'",
+              answer: "Does that replanning ever cascade into bigger decisions — like delaying investments, headcount changes, or product launches?",
+              hint: "Ask an Implication question that expands the pain beyond 'it's disruptive' to show the downstream business impact.",
+              explanation: "This Implication question takes 'disruptive replanning' and expands it to 'delayed product launches and board credibility issues.' The pain just got much bigger."
+            },
+            {
+              id: "b3",
+              before: "SE: 'If your forecasting accuracy improved from 65% to 90%, and your team got those 2 weeks back each quarter — [NEED-PAYOFF QUESTION]'\nVP: 'We'd be able to make faster strategic decisions, our board would have more confidence in us, and honestly my team would stop dreading forecast season.'",
+              after: "\nSE: 'That's exactly what I want to show you today.'",
+              answer: "what would that change about how you run the business?",
+              hint: "Complete the Need-Payoff question so the prospect articulates the value in their own words.",
+              explanation: "The VP just described the value of your solution — in their words. 'Faster strategic decisions, board confidence, team morale.' These are the exact phrases you'll use in your Value Close."
+            }
+          ]
+        }
+      }
+    ]
+  }
+];
+
+// Combined export for convenience
+export const ALL_MODULES = [...MODULES, ...BONUS_MODULES];

@@ -38,15 +38,20 @@ interface GameContextType {
 
 const INITIAL_BADGES: Badge[] = [
   { id: "first_step", name: "First Step", icon: "🚀", description: "Complete your first activity", earned: false },
+  { id: "tell_show_tell", name: "TST Master", icon: "🎯", description: "Complete the Tell-Show-Tell module", earned: false },
   { id: "bridge_builder", name: "Bridge Builder", icon: "🌉", description: "Complete the Bridge Building module", earned: false },
-  { id: "crime_detective", name: "Demo Detective", icon: "🔍", description: "Identify 5 demo crimes correctly", earned: false },
-  { id: "tell_show_tell", name: "TST Master", icon: "🎯", description: "Complete the Tell-Show-Tell module with 100%", earned: false },
+  { id: "crime_detective", name: "Demo Detective", icon: "🔍", description: "Complete the Demo Crime Files module", earned: false },
   { id: "discovery_pro", name: "Discovery Pro", icon: "🧭", description: "Complete the Discovery module", earned: false },
   { id: "value_closer", name: "Value Closer", icon: "💎", description: "Complete the Value Close module", earned: false },
-  { id: "ai_se_certified", name: "AI SE Certified", icon: "🏆", description: "Complete all 7 modules", earned: false },
+  { id: "ai_se_certified", name: "AI SE Certified", icon: "🏆", description: "Complete all 7 core modules", earned: false },
+  { id: "six_habits", name: "Six Habits SE", icon: "⚡", description: "Complete The Six Habits module", earned: false },
+  { id: "challenger", name: "Challenger SE", icon: "⚔️", description: "Complete The Challenger SE module", earned: false },
+  { id: "meddpicc_pro", name: "MEDDPICC Pro", icon: "🎖️", description: "Complete MEDDPICC Mastery module", earned: false },
+  { id: "spin_master", name: "SPIN Master", icon: "🔄", description: "Complete SPIN Selling for SEs module", earned: false },
+  { id: "methodology_master", name: "Methodology Master", icon: "🌟", description: "Complete all 11 modules", earned: false },
 ];
 
-const LEVEL_THRESHOLDS = [0, 100, 250, 500, 800, 1200, 1800, 2500];
+export const LEVEL_THRESHOLDS = [0, 100, 250, 500, 800, 1200, 1800, 2500, 3500, 5000];
 
 const STORAGE_KEY = "dtw_game_state";
 
@@ -71,7 +76,16 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<GameState>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Merge any new badges that don't exist in saved state
+        const savedBadgeIds = new Set((parsed.badges || []).map((b: Badge) => b.id));
+        const newBadges = INITIAL_BADGES.filter(b => !savedBadgeIds.has(b.id));
+        if (newBadges.length > 0) {
+          parsed.badges = [...(parsed.badges || []), ...newBadges];
+        }
+        return parsed;
+      }
     } catch {}
     return defaultState;
   });
@@ -110,10 +124,27 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
       const mod = prev.modules[moduleId] || { id: moduleId, completed: false, score: 0, xpEarned: 0, activitiesCompleted: [] };
       const newMod = { ...mod, completed: true, score };
       let newBadges = [...prev.badges];
-      const badgeMap: Record<number, string> = { 2: "bridge_builder", 3: "crime_detective", 1: "tell_show_tell", 4: "discovery_pro", 7: "value_closer" };
+      // Badge map for all 11 modules
+      const badgeMap: Record<number, string> = {
+        1: "tell_show_tell",
+        2: "bridge_builder",
+        3: "crime_detective",
+        4: "discovery_pro",
+        7: "value_closer",
+        8: "six_habits",
+        9: "challenger",
+        10: "meddpicc_pro",
+        11: "spin_master",
+      };
       if (badgeMap[moduleId]) newBadges = newBadges.map(b => b.id === badgeMap[moduleId] ? { ...b, earned: true } : b);
-      const allCompleted = [1,2,3,4,5,6,7].every(id => id === moduleId ? true : prev.modules[id]?.completed);
-      if (allCompleted) newBadges = newBadges.map(b => b.id === "ai_se_certified" ? { ...b, earned: true } : b);
+      // Core 7 modules certification
+      const core7 = [1,2,3,4,5,6,7];
+      const core7Done = core7.every(id => id === moduleId ? true : prev.modules[id]?.completed);
+      if (core7Done) newBadges = newBadges.map(b => b.id === "ai_se_certified" ? { ...b, earned: true } : b);
+      // All 11 modules certification
+      const all11 = [1,2,3,4,5,6,7,8,9,10,11];
+      const all11Done = all11.every(id => id === moduleId ? true : prev.modules[id]?.completed);
+      if (all11Done) newBadges = newBadges.map(b => b.id === "methodology_master" ? { ...b, earned: true } : b);
       return { ...prev, modules: { ...prev.modules, [moduleId]: newMod }, badges: newBadges };
     });
   }, []);
@@ -128,6 +159,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 
   const isModuleUnlocked = useCallback((moduleId: number) => {
     if (moduleId === 1) return true;
+    // Bonus modules (8-11) require module 7 to be completed
+    if (moduleId >= 8) return state.modules[7]?.completed ?? false;
     return state.modules[moduleId - 1]?.completed ?? false;
   }, [state.modules]);
 
@@ -147,6 +180,3 @@ export function useGame() {
   if (!ctx) throw new Error("useGame must be used within GameProvider");
   return ctx;
 }
-
-export { LEVEL_THRESHOLDS };
-
