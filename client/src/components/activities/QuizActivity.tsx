@@ -87,9 +87,16 @@ export default function QuizActivity({ activity, moduleId, onComplete }: { activ
               else if (idx === selected && idx !== q.correct) cls += "border-red-500/60 bg-red-500/10 shake";
               else cls += "border-white/5 opacity-50";
               return (
-                <button key={idx} className={cls} onClick={() => handleSelect(idx)}>
+                <button
+                  key={idx}
+                  className={`${cls} focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400`}
+                  onClick={() => handleSelect(idx)}
+                  disabled={selected !== null}
+                  aria-pressed={selected === idx}
+                  aria-label={`Option ${String.fromCharCode(65 + idx)}: ${opt}${selected !== null && idx === q.correct ? " — correct answer" : selected === idx && idx !== q.correct ? " — incorrect" : ""}`}
+                >
                   <div className="flex items-start gap-3">
-                    <div className={`w-6 h-6 rounded-full border flex-shrink-0 flex items-center justify-center text-xs font-mono-custom mt-0.5 ${selected !== null && idx === q.correct ? "border-emerald-400 bg-emerald-500/20 text-emerald-400" : selected === idx && idx !== q.correct ? "border-red-400 bg-red-500/20 text-red-400" : "border-white/30 text-white/50"}`}>
+                    <div aria-hidden="true" className={`w-6 h-6 rounded-full border flex-shrink-0 flex items-center justify-center text-xs font-mono-custom mt-0.5 ${selected !== null && idx === q.correct ? "border-emerald-400 bg-emerald-500/20 text-emerald-400" : selected === idx && idx !== q.correct ? "border-red-400 bg-red-500/20 text-red-400" : "border-white/30 text-white/50"}`}>
                       {selected !== null && idx === q.correct ? <CheckCircle2 className="w-4 h-4" /> : selected === idx && idx !== q.correct ? <XCircle className="w-4 h-4" /> : String.fromCharCode(65 + idx)}
                     </div>
                     <span className="text-white/80 text-sm leading-relaxed">{opt}</span>

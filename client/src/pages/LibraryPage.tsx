@@ -7,7 +7,7 @@ import { useGame } from "@/contexts/GameContext";
 const BOOKS = [
   {
     id: 1,
-    title: "Demonstrate to Win",
+    title: "Demonstrating to Win!",
     author: "Robert Riefstahl",
     year: "2009",
     category: "Core Curriculum",
@@ -206,7 +206,7 @@ export default function LibraryPage() {
       <div className="border-b border-white/5 bg-white/2 sticky top-0 z-10 backdrop-blur-sm">
         <div className="px-4 md:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/"><button className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></button></Link>
+            <Link href="/" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></Link>
             <div className="w-px h-4 bg-white/10 hidden sm:block" />
             <div className="flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-teal-400" />

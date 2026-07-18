@@ -23,7 +23,7 @@ export default function CertificationPage() {
       <div className="border-b border-white/5 bg-white/2 sticky top-0 z-10 backdrop-blur-sm">
         <div className="px-4 md:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/"><button className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></button></Link>
+            <Link href="/" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></Link>
             <div className="w-px h-4 bg-white/10 hidden sm:block" />
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4 text-amber-400" />
@@ -43,7 +43,7 @@ export default function CertificationPage() {
           <div className="text-xs font-mono-custom text-amber-400 uppercase tracking-widest mb-2">// MISSION DEBRIEF</div>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">Your Certification Status</h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed">
-            Track your progress toward AI SE certification. Complete all 7 core modules to earn the AI SE Certified credential. Complete all 11 modules for Methodology Master status.
+            Track your progress through the AI SE training program. Complete all 7 core modules to earn the AI SE Proficient completion record. Complete all 11 modules for Methodology Master status. These are internal training completion records, not externally accredited certifications.
           </p>
         </motion.div>
 
@@ -125,7 +125,7 @@ export default function CertificationPage() {
                     <div className="text-white font-display font-semibold">AI SE Certified</div>
                   </div>
                 </div>
-                <p className="text-sm text-white/50 mb-5">Complete all 7 core modules to earn the AI SE Certified credential.</p>
+                <p className="text-sm text-white/50 mb-5">Complete all 7 core modules to earn the AI SE Proficient completion record.</p>
                 <div className="space-y-2 mb-5">
                   {[1,2,3,4,5,6,7].map(id => {
                     const mod = ALL_MODULES.find(m => m.id === id);
@@ -249,7 +249,7 @@ export default function CertificationPage() {
               <Shield className="w-6 h-6 text-teal-400 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-white font-display font-semibold mb-2">Continue Your Mission</h3>
-                <p className="text-white/55 text-sm mb-4">Complete the remaining core modules to earn your AI SE Certified credential.</p>
+                <p className="text-white/55 text-sm mb-4">Complete the remaining core modules to earn your AI SE Proficient completion record.</p>
                 {[1,2,3,4,5,6,7].filter(id => !isModuleCompleted(id)).slice(0, 3).map(id => {
                   const mod = ALL_MODULES.find(m => m.id === id);
                   return (

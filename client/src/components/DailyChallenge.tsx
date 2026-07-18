@@ -30,12 +30,14 @@ function seededRandom(seed: number): () => number {
 }
 
 function getDailyChallenge() {
+  // Only pick from core modules (1-7) so the challenge is always accessible to new learners
+  // Bonus modules (8-11) require completing all 7 core modules first
   const seed = getDailySeed();
   const rand = seededRandom(seed);
 
-  // Build a flat list of all (module, activity) pairs
+  // Build a flat list of core module (module, activity) pairs only
   const pairs: Array<{ module: (typeof ALL_MODULES)[0]; activity: (typeof ALL_MODULES)[0]["activities"][0] }> = [];
-  for (const mod of ALL_MODULES) {
+  for (const mod of ALL_MODULES.filter(m => m.id <= 7)) {
     for (const act of mod.activities) {
       pairs.push({ module: mod, activity: act });
     }
@@ -74,6 +76,7 @@ export default function DailyChallenge() {
   const moduleUnlocked = isModuleUnlocked(module.id);
   const typeLabel = activityTypeLabels[activity.type] || activity.type;
 
+  // Format today's date for display
   // Format today's date for display
   const today = new Date();
   const dateStr = today.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
@@ -114,8 +117,8 @@ export default function DailyChallenge() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  {(alreadyDone || completed) && (
-                    <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2.5 py-1">
+              {(alreadyDone || completed) && (
+                    <div role="status" aria-live="polite" className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2.5 py-1">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                       <span className="text-xs font-mono-custom text-emerald-400">Done</span>
                     </div>

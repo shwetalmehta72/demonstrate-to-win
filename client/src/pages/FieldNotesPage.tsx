@@ -9,7 +9,7 @@ const CHEAT_SHEETS = [
   {
     id: "tst",
     title: "Tell-Show-Tell",
-    source: "Demonstrate to Win — Riefstahl",
+    source: "Demonstrating to Win! — Riefstahl",
     color: "teal",
     icon: "🎯",
     sections: [
@@ -52,7 +52,7 @@ const CHEAT_SHEETS = [
   {
     id: "bridge",
     title: "Bridge Building",
-    source: "Demonstrate to Win — Riefstahl",
+    source: "Demonstrating to Win! — Riefstahl",
     color: "emerald",
     icon: "🌉",
     sections: [
@@ -88,7 +88,7 @@ const CHEAT_SHEETS = [
   {
     id: "crimes",
     title: "Demo Crime Files",
-    source: "Demonstrate to Win — Riefstahl",
+    source: "Demonstrating to Win! — Riefstahl",
     color: "red",
     icon: "🔍",
     sections: [
@@ -121,7 +121,7 @@ const CHEAT_SHEETS = [
   {
     id: "limbic",
     title: "Limbic Opening & Value Close",
-    source: "Demonstrate to Win — Riefstahl",
+    source: "Demonstrating to Win! — Riefstahl",
     color: "amber",
     icon: "💎",
     sections: [
@@ -164,15 +164,17 @@ const CHEAT_SHEETS = [
     icon: "🎖️",
     sections: [
       {
-        label: "The 7 Elements",
+        label: "The 8 Elements (MEDDPICC)",
         items: [
           "M — METRICS: What is the quantified business impact?",
           "E — ECONOMIC BUYER: Who has final budget authority?",
           "D — DECISION CRITERIA: What are the evaluation requirements?",
-          "D — DECISION PROCESS: What is the path to a signed contract?",
-          "P — IMPLICATE PAIN: What is the cost of inaction?",
-          "I — CHAMPION: Who is selling for you internally?",
+          "D — DECISION PROCESS: What is the approval path from verbal yes to signed order?",
+          "P — PAPER PROCESS: What are the legal, procurement, InfoSec, and DPA steps to execute the contract?",
+          "I — IMPLICATE PAIN: What is the cost of inaction?",
+          "C — CHAMPION: Who is selling for you internally?",
           "C — COMPETITION: Who else is in the deal?",
+          "Note: MEDDICC (7 elements) omits Paper Process. MEDDPICC includes it.",
         ],
       },
       {
@@ -190,6 +192,7 @@ const CHEAT_SHEETS = [
           "Economic Buyer not engaged → Deal stalls at champion level",
           "No Champion → You're selling to an evaluator, not a buyer",
           "Internal build in competition → Reframe to build vs. buy economics",
+          "Paper Process unknown → Deal slips at end of quarter due to legal/procurement delays",
         ],
       },
     ],
@@ -313,7 +316,7 @@ export default function FieldNotesPage() {
       <div className="border-b border-white/5 bg-white/2 sticky top-0 z-10 backdrop-blur-sm">
         <div className="px-4 md:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/"><button className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></button></Link>
+            <Link href="/" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></Link>
             <div className="w-px h-4 bg-white/10 hidden sm:block" />
             <div className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-amber-400" />

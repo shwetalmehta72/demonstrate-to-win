@@ -106,6 +106,7 @@ const SECTIONS: Section[] = [
       { id: "m2", text: "Economic Buyer — identified and either in the room or briefed" },
       { id: "m3", text: "Decision Criteria — I know what they're evaluating and how we score" },
       { id: "m4", text: "Decision Process — I know the steps from demo to signed contract" },
+      { id: "m4p", text: "Paper Process — I know the legal, procurement, InfoSec, and DPA steps required to execute the contract", tip: "Paper Process is the 8th MEDDPICC element. In AI deals, this can take 6–12 weeks. Discover it early." },
       { id: "m5", text: "Implicate Pain — I can articulate the cost of inaction" },
       { id: "m6", text: "Champion — I have an internal advocate who wants us to win" },
       { id: "m7", text: "Competition — I know who else is in the evaluation" },

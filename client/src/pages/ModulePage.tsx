@@ -43,8 +43,23 @@ export default function ModulePage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const currentLevelXP = LEVEL_THRESHOLDS[state.level - 1] ?? 0;
-  const nextLevelXP = LEVEL_THRESHOLDS[state.level] ?? LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1];
-  const levelProgress = nextLevelXP > currentLevelXP ? ((state.xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100 : 100;
+  const isMaxLevel = state.level >= LEVEL_THRESHOLDS.length;
+  const nextLevelXP = isMaxLevel ? LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1] : (LEVEL_THRESHOLDS[state.level] ?? LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1]);
+  const levelProgress = isMaxLevel ? 100 : (nextLevelXP > currentLevelXP ? ((state.xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100 : 100);
+
+  // All hooks must be declared before any conditional returns (Rules of Hooks)
+  // Compute these unconditionally — module may be undefined, so guard with optional chaining
+  const completedActivitiesCount = module ? module.activities.filter(a => isActivityCompleted(moduleId, a.id)).length : 0;
+  const allDone = module ? completedActivitiesCount === module.activities.length : false;
+
+  // useEffect must be above all conditional returns — fires after paint when module is complete
+  useEffect(() => {
+    if (module && allDone && !state.modules[moduleId]?.completed) {
+      const score = 100; // Score is 100 when all activities are completed
+      completeModule(moduleId, score);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allDone, moduleId]);
 
   if (!module) return <div className="min-h-screen bg-background flex items-center justify-center text-white">Module not found</div>;
 
@@ -58,7 +73,7 @@ export default function ModulePage() {
       <div className="min-h-screen bg-background flex flex-col" style={{ fontFamily: "var(--font-body)" }}>
         <div className="border-b border-white/5 bg-white/2 sticky top-0 z-10 backdrop-blur-sm">
           <div className="px-4 md:px-6 py-4 flex items-center justify-between">
-            <Link href="/"><button className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Back to Dashboard</span></button></Link>
+            <Link href="/" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"><ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Back to Dashboard</span></Link>
             <div className="flex items-center gap-2 text-xs font-mono-custom text-white/30"><Shield className="w-3.5 h-3.5" />RESTRICTED ACCESS</div>
           </div>
         </div>
@@ -95,13 +110,13 @@ export default function ModulePage() {
               </div>
               <div className="text-sm text-white/50 mb-6">
                 {moduleId >= 8
-                  ? "Complete all 7 core modules to unlock this bonus module."
+                  ? "Complete all 7 core modules (Modules 1–7) to unlock this bonus methodology module."
                   : `Complete all activities in Module ${moduleId - 1} to unlock this module.`}
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href={`/module/${moduleId - 1}`}>
+                <Link href={`/module/${moduleId >= 8 ? 7 : moduleId - 1}`}>
                   <Button className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-black font-semibold">
-                    <ChevronRight className="w-4 h-4 mr-1" /> Go to Module {moduleId - 1}
+                    <ChevronRight className="w-4 h-4 mr-1" /> Go to Module {moduleId >= 8 ? 7 : moduleId - 1}
                   </Button>
                 </Link>
                 <Link href="/"><Button variant="outline" className="w-full sm:w-auto border-white/20 text-white/60 hover:text-white">Dashboard</Button></Link>
@@ -114,18 +129,10 @@ export default function ModulePage() {
   }
 
   const colors = accentMap[module.accentColor];
-  const completedActivities = module.activities.filter(a => isActivityCompleted(moduleId, a.id)).length;
-  const allDone = completedActivities === module.activities.length;
+  const completedActivities = completedActivitiesCount; // alias for readability below
   const progressPct = module.activities.length > 0 ? (completedActivities / module.activities.length) * 100 : 0;
 
-  // useEffect prevents setState-in-render violation — fires after paint when all activities are done
-  useEffect(() => {
-    if (allDone && !state.modules[moduleId]?.completed) {
-      const score = Math.round((completedActivities / module.activities.length) * 100);
-      completeModule(moduleId, score);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allDone, moduleId]);
+  // (useEffect moved above conditional returns — see top of component)
 
   const currentActivity = activeActivity ? module.activities.find(a => a.id === activeActivity) : null;
   const isBonus = moduleId >= 8;
@@ -159,7 +166,7 @@ export default function ModulePage() {
         <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-1">
           <div className="h-full bg-teal-500 rounded-full transition-all" style={{ width: `${levelProgress}%` }} />
         </div>
-        <div className="text-xs font-mono-custom text-white/25">{state.xp}/{nextLevelXP} to next level</div>
+        <div className="text-xs font-mono-custom text-white/25">{isMaxLevel ? "// MAX LEVEL REACHED" : `${state.xp}/${nextLevelXP} to next level`}</div>
       </div>
 
       {/* Module Navigation */}

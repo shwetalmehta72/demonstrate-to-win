@@ -147,11 +147,11 @@ export default function Home() {
               <span className="text-teal-400">a Bridge or a Wall.</span>
             </h1>
             <p className="text-base md:text-lg text-white/70 max-w-2xl mb-7 leading-relaxed">
-              Master the complete methodology from Robert Reifstahl's <em>Demonstrate to Win</em> — adapted for the world of complex AI solutions. 11 modules. 50+ interactive challenges. Two certifications.
+              Master the complete methodology from Robert Riefstahl's <em>Demonstrating to Win!</em> — adapted for the world of complex AI solutions. 11 modules. 32 interactive challenges. Two certifications.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/50">
               <div className="flex items-center gap-2"><BookOpen className="w-4 h-4" /><span>11 Modules</span></div>
-              <div className="flex items-center gap-2"><Target className="w-4 h-4" /><span>50+ Activities</span></div>
+              <div className="flex items-center gap-2"><Target className="w-4 h-4" /><span>32 Activities</span></div>
               <div className="flex items-center gap-2"><Trophy className="w-4 h-4" /><span>12 Badges</span></div>
               <div className="flex items-center gap-2"><Shield className="w-4 h-4" /><span>2 Certifications</span></div>
             </div>
@@ -204,7 +204,7 @@ export default function Home() {
         <div className="mb-8 md:mb-10">
           <div className="text-xs font-mono-custom text-teal-400 uppercase tracking-widest mb-2">// CORE CURRICULUM</div>
           <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-2">Mission Modules</h2>
-          <p className="text-white/50 text-sm md:text-base">Complete modules in order to unlock the next. Based on Riefstahl's <em>Demonstrate to Win</em>.</p>
+          <p className="text-white/50 text-sm md:text-base">Complete modules in order to unlock the next. Based on Riefstahl's <em>Demonstrating to Win!</em>.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {MODULES.map((module, i) => {

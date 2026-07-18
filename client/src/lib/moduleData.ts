@@ -241,7 +241,7 @@ export const MODULES: Module[] = [
     accentColor: "amber",
     estimatedMinutes: 30,
     xpReward: 300,
-    keyConceptSummary: "Robert Reifstahl catalogued 28 'Demo Crimes' — common mistakes that sabotage software demonstrations. These range from the 'PowerPoint Crutch' to 'Data Dumping' to 'Zippy Mouse Syndrome.' In the world of AI demos, these crimes are even more dangerous because AI features are inherently complex and easy to misrepresent.",
+    keyConceptSummary: "Robert Riefstahl catalogued 28 'Demo Crimes' — common mistakes that sabotage software demonstrations. These range from the 'PowerPoint Crutch' to 'Data Dumping' to 'Zippy Mouse Syndrome.' In the world of AI demos, these crimes are even more dangerous because AI features are inherently complex and easy to misrepresent.",
     aiContext: "AI demos are uniquely crime-prone. The 'So What?' crime is rampant — SEs show impressive AI capabilities without connecting them to business value. 'Technobabble' is common — using terms like 'transformer architecture' and 'vector embeddings' with non-technical buyers. And 'The Magical Mystery Tour' is deadly — showing AI features without a clear narrative thread.",
     activities: [
       {
@@ -341,7 +341,7 @@ export const MODULES: Module[] = [
     accentColor: "purple",
     estimatedMinutes: 25,
     xpReward: 250,
-    keyConceptSummary: "Discovery is the process of gathering the information you need to deliver a relevant, personalized demo. Reifstahl's framework asks three core questions: How is the process handled currently? How would you like to do it? What would be the impact? Great discovery means you never have to guess what to show — you know exactly which features matter to which people.",
+    keyConceptSummary: "Discovery is the process of gathering the information you need to deliver a relevant, personalized demo. Riefstahl's framework asks three core questions: How is the process handled currently? How would you like to do it? What would be the impact? Great discovery means you never have to guess what to show — you know exactly which features matter to which people.",
     aiContext: "AI use cases are incredibly diverse. The same AI platform might be used for fraud detection, customer service automation, supply chain optimization, or HR analytics. Without discovery, you'll show the wrong use case to the wrong audience. Discovery on the Fly — gathering information even during the demo — is a critical skill for AI SEs.",
     activities: [
       {
@@ -357,7 +357,7 @@ export const MODULES: Module[] = [
               setup: "You're about to demo an AI operations platform to a Director of IT Operations. You have 10 minutes for pre-demo discovery. Which question do you ask FIRST?",
               options: [
                 { id: "a", text: "\"What features are most important to you in an AI platform?\"", quality: "poor", feedback: "This is a feature-focused question that puts the burden on the prospect to know what they need. It also signals you're going to show features, not solve problems." },
-                { id: "b", text: "\"Can you walk me through how your team currently handles [the core process your AI addresses]? What's working, what's not?\"", quality: "excellent", feedback: "This is Reifstahl's first discovery question: 'How is the process handled currently?' It opens a conversation about their world, not your product. The answer tells you exactly what to show." },
+                { id: "b", text: "\"Can you walk me through how your team currently handles [the core process your AI addresses]? What's working, what's not?\"", quality: "excellent", feedback: "This is Riefstahl's first discovery question: 'How is the process handled currently?' It opens a conversation about their world, not your product. The answer tells you exactly what to show." },
                 { id: "c", text: "\"How many users would be using the platform?\"", quality: "poor", feedback: "This is a qualification question, not a discovery question. It tells you about deal size but nothing about what to show in the demo." },
                 { id: "d", text: "\"What's your timeline for making a decision?\"", quality: "poor", feedback: "Timeline is important for the sales process but irrelevant for demo preparation. Ask this at the end, not the beginning." },
               ]
@@ -367,7 +367,7 @@ export const MODULES: Module[] = [
               setup: "During discovery, the Director says: 'Our biggest pain is that we have 5 monitoring tools that don't talk to each other, so we're always reacting to incidents instead of preventing them.' What's your best follow-up?",
               options: [
                 { id: "a", text: "\"Great — we can definitely solve that. Let me show you our integration hub.\"", quality: "poor", feedback: "Jumping to the demo too fast. You have one pain point but haven't quantified the impact or understood the ideal future state. This leads to a generic demo." },
-                { id: "b", text: "\"How would you ideally like that to work? And what would it mean for your team if you could prevent incidents instead of reacting to them?\"", quality: "excellent", feedback: "This is Reifstahl's second and third discovery questions: 'How would you like to do it?' and 'What would be the impact?' Now you have a complete bridge: current pain → desired future → business impact. Your demo writes itself." },
+                { id: "b", text: "\"How would you ideally like that to work? And what would it mean for your team if you could prevent incidents instead of reacting to them?\"", quality: "excellent", feedback: "This is Riefstahl's second and third discovery questions: 'How would you like to do it?' and 'What would be the impact?' Now you have a complete bridge: current pain → desired future → business impact. Your demo writes itself." },
                 { id: "c", text: "\"How many incidents do you typically handle per month?\"", quality: "good", feedback: "Quantifying the problem is valuable, but you're missing the future state and impact questions. Add those to complete the discovery triangle." },
                 { id: "d", text: "\"Which of the 5 tools is the most problematic?\"", quality: "good", feedback: "Useful for understanding the technical landscape, but doesn't help you understand what the ideal future looks like or the business impact of solving it." },
               ]
@@ -401,7 +401,7 @@ export const MODULES: Module[] = [
           questions: [
             {
               id: "q1",
-              question: "Reifstahl's three core discovery questions are:",
+              question: "Riefstahl's three core discovery questions are:",
               options: [
                 "Who is the buyer? What is the budget? When is the decision?",
                 "How is the process handled currently? How would you like to do it? What would be the impact?",
@@ -438,7 +438,7 @@ export const MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 20,
     xpReward: 200,
-    keyConceptSummary: "A demo room is never a monolith. You'll have champions, skeptics, economic buyers, technical evaluators, and end users — all with different agendas. Reifstahl's framework helps you identify personality types, manage difficult audience members, and ensure every stakeholder leaves feeling heard.",
+    keyConceptSummary: "A demo room is never a monolith. You'll have champions, skeptics, economic buyers, technical evaluators, and end users — all with different agendas. Riefstahl's framework helps you identify personality types, manage difficult audience members, and ensure every stakeholder leaves feeling heard.",
     aiContext: "AI demos often attract mixed audiences: enthusiastic innovators who want to push AI to its limits, skeptical IT leaders worried about security and governance, and business leaders who just want to know if it works. Managing these competing agendas in real-time is a core SE skill.",
     activities: [
       {
@@ -463,7 +463,7 @@ export const MODULES: Module[] = [
             },
             {
               id: "q2",
-              question: "The 'Demonstration Attendee Checklist' that Reifstahl recommends filling out before every demo asks you to identify:",
+              question: "The 'Demonstration Attendee Checklist' that Riefstahl recommends filling out before every demo asks you to identify:",
               options: [
                 "The prospect's budget, timeline, and decision-making process",
                 "Who is attending, their primary responsibilities, and 3 things each person wants to see",
@@ -483,7 +483,7 @@ export const MODULES: Module[] = [
                 "You should move faster to show more features"
               ],
               correct: 1,
-              explanation: "Reifstahl calls this the 'Status Quo Audience' crime — but it applies to the audience's reaction too. A good demo provokes reactions: questions, nods, leaning forward, side conversations. Silence usually means you've lost them. Pause and ask: 'Does this resonate with what you're experiencing?'"
+              explanation: "Riefstahl calls this the 'Status Quo Audience' crime — but it applies to the audience's reaction too. A good demo provokes reactions: questions, nods, leaning forward, side conversations. Silence usually means you've lost them. Pause and ask: 'Does this resonate with what you're experiencing?'"
             },
           ]
         }
@@ -521,7 +521,7 @@ export const MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 20,
     xpReward: 200,
-    keyConceptSummary: "Reifstahl dedicates significant attention to the mechanics of preparation: the environment setup, the data in your demo, the technical checklist, and the mental preparation. A demo that crashes, has bad data, or runs into technical issues loses credibility instantly. In AI demos, where live model inference can be slow or unpredictable, preparation is even more critical.",
+    keyConceptSummary: "Riefstahl dedicates significant attention to the mechanics of preparation: the environment setup, the data in your demo, the technical checklist, and the mental preparation. A demo that crashes, has bad data, or runs into technical issues loses credibility instantly. In AI demos, where live model inference can be slow or unpredictable, preparation is even more critical.",
     aiContext: "AI demos have unique preparation challenges: model latency can vary, live API calls can fail, and AI-generated outputs can be unpredictable. Best-in-class AI SEs prepare 'golden path' demos with pre-loaded data and expected outputs, while also being ready to handle live demonstrations when the prospect requests them.",
     activities: [
       {
@@ -542,7 +542,7 @@ export const MODULES: Module[] = [
                 "Use your own company's data as an example"
               ],
               correct: 2,
-              explanation: "Reifstahl emphasizes that demo data should make the prospect feel like they're seeing their own world. Generic data creates distance. Using the prospect's industry, terminology, and realistic scenarios makes the demo feel immediately relevant and reduces the 'imagination gap.'"
+              explanation: "Riefstahl emphasizes that demo data should make the prospect feel like they're seeing their own world. Generic data creates distance. Using the prospect's industry, terminology, and realistic scenarios makes the demo feel immediately relevant and reduces the 'imagination gap.'"
             },
             {
               id: "q2",
@@ -566,7 +566,7 @@ export const MODULES: Module[] = [
                 "5 minutes before — you want everything fresh"
               ],
               correct: 2,
-              explanation: "Reifstahl recommends completing setup the day before. This gives you time to discover and fix issues without the pressure of a waiting prospect. On demo day, a quick 15-minute check is all you need."
+              explanation: "Riefstahl recommends completing setup the day before. This gives you time to discover and fix issues without the pressure of a waiting prospect. On demo day, a quick 15-minute check is all you need."
             },
           ]
         }
@@ -685,7 +685,7 @@ export const MODULES: Module[] = [
             },
             {
               id: "fq3",
-              question: "Reifstahl's three core discovery questions are (in order):",
+              question: "Riefstahl's three core discovery questions are (in order):",
               options: [
                 "What do you need? When do you need it? What's your budget?",
                 "How is it handled currently? How would you like to do it? What would be the impact?",
@@ -977,12 +977,12 @@ export const BONUS_MODULES: Module[] = [
     slug: "meddpicc-mastery",
     title: "MEDDPICC Mastery",
     subtitle: "Qualify Every Deal Like a Pro",
-    tagline: "Metrics · Economic Buyer · Decision Criteria · Decision Process · Implicate Pain · Champion · Competition",
+    tagline: "Metrics · Economic Buyer · Decision Criteria · Decision Process · Paper Process · Implicate Pain · Champion · Competition",
     icon: "🎖️",
     accentColor: "purple",
     estimatedMinutes: 35,
     xpReward: 350,
-    keyConceptSummary: "MEDDPICC is the gold-standard qualification framework for complex B2B sales. It ensures you never waste a demo on an unqualified opportunity. Each letter represents a critical piece of information: Metrics (quantified business impact), Economic Buyer (who controls the budget), Decision Criteria (how they'll choose), Decision Process (how they'll decide), Implicate Pain (the cost of inaction), Champion (your internal advocate), and Competition (who else is in the deal).",
+    keyConceptSummary: "MEDDPICC is a qualification framework for complex B2B sales with eight elements. Each letter represents critical deal intelligence: Metrics (quantified business impact), Economic Buyer (who controls the budget), Decision Criteria (how they'll choose), Decision Process (how they'll decide), Paper Process (the legal/procurement/security steps required to execute a contract), Implicate Pain (the cost of inaction), Champion (your internal advocate), and Competition (who else is in the deal). Note: a seven-element variant called MEDDICC omits Paper Process — MEDDPICC includes it.",
     aiContext: "AI deals are particularly prone to 'demo theater' — impressive demonstrations that never convert because the deal was never properly qualified. AI budgets are often unallocated, decision processes involve data governance committees, and champions need to be technically credible enough to defend the solution internally. MEDDPICC discipline is what separates AI SEs who win from those who just demo.",
     activities: [
       {
@@ -1000,8 +1000,9 @@ export const BONUS_MODULES: Module[] = [
             { id: "e", text: "\"Every quarter we miss our SLA targets, we pay $200K in penalties. Last year we paid $800K in penalties.\"", phase: "implicate-pain" },
             { id: "f", text: "The VP of Operations has been our main contact. She's been sharing our materials internally and pushed to get the CFO meeting scheduled.", phase: "champion" },
             { id: "g", text: "\"We're also looking at Vendor X and doing an internal build evaluation with our engineering team.\"", phase: "competition" },
+            { id: "h", text: "\"Before we can sign anything, it goes through Legal (2 weeks), InfoSec review (3 weeks), and Procurement (1 week). We also need a DPA signed before the POC can start.\"", phase: "paper-process" },
           ],
-          correctOrder: ["a", "b", "c", "d", "e", "f", "g"],
+          correctOrder: ["a", "b", "c", "d", "h", "e", "f", "g"],
           phases: [
             { id: "metrics", label: "Metrics", color: "teal", description: "Quantified business impact" },
             { id: "economic-buyer", label: "Economic Buyer", color: "amber", description: "Budget decision-maker" },
@@ -1010,6 +1011,7 @@ export const BONUS_MODULES: Module[] = [
             { id: "implicate-pain", label: "Implicate Pain", color: "red", description: "Cost of inaction" },
             { id: "champion", label: "Champion", color: "teal", description: "Internal advocate" },
             { id: "competition", label: "Competition", color: "amber", description: "Who else is in the deal" },
+            { id: "paper-process", label: "Paper Process", color: "purple", description: "Legal, procurement & security steps" },
           ]
         }
       },
@@ -1068,6 +1070,18 @@ export const BONUS_MODULES: Module[] = [
               ],
               correct: 2,
               explanation: "Internal builds are a unique competitor. Feature comparisons don't win against 'we could build this.' What wins is the build vs. buy economic argument: 'Building this takes 18 months and $2M in engineering time. We're live in 90 days. Your engineers can spend those 18 months on your core product instead.' This is MEDDPICC Competition intelligence driving your demo strategy."
+            },
+            {
+              id: "q5",
+              question: "A prospect's champion says 'We love the product, but I'm not sure how long it takes to get a contract signed here.' Which MEDDPICC element is missing?",
+              options: [
+                "Decision Process — you don't know the approval steps",
+                "Paper Process — you don't know the legal, procurement, and security steps required to execute a contract",
+                "Economic Buyer — you haven't identified who signs",
+                "Champion — your champion doesn't have enough authority"
+              ],
+              correct: 1,
+              explanation: "Paper Process is the often-overlooked 8th element of MEDDPICC (making it distinct from MEDDICC). It covers everything that happens after a verbal 'yes': legal review, InfoSec/SOC 2 audits, procurement workflows, DPA/BAA agreements, and executive sign-off. In AI deals, Paper Process can take 6–12 weeks. Discovering it early prevents end-of-quarter surprises."
             }
           ]
         }

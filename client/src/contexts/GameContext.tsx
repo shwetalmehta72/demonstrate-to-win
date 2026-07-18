@@ -51,7 +51,7 @@ const INITIAL_BADGES: Badge[] = [
   { id: "methodology_master", name: "Methodology Master", icon: "🌟", description: "Complete all 11 modules", earned: false },
 ];
 
-export const LEVEL_THRESHOLDS = [0, 100, 250, 500, 800, 1200, 1800, 2500, 3500, 5000];
+export const LEVEL_THRESHOLDS = [0, 100, 250, 450, 700, 1000, 1400, 1800, 2200, 2530]; // Calibrated to max 2530 XP from 32 activities
 
 const STORAGE_KEY = "dtw_game_state";
 
