@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, FileText, Zap, Printer } from "lucide-react";
+import { ClipboardList, ChevronRight } from "lucide-react";
 import { useGame } from "@/contexts/GameContext";
 
 // Style: Mission Control — field notes as "quick reference intel cards"
@@ -346,6 +347,29 @@ export default function FieldNotesPage() {
         </motion.div>
 
         {/* Cheat Sheet Grid */}
+        {/* Pre-Demo Checklist CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, duration: 0.35 }}
+          className="mb-8"
+        >
+          <Link href="/pre-demo-checklist">
+            <div className="card-panel border-teal-500/40 bg-teal-500/5 hover:bg-teal-500/10 transition-colors cursor-pointer group p-5 flex items-center gap-5">
+              <div className="w-12 h-12 rounded border border-teal-500/30 bg-teal-500/10 flex items-center justify-center flex-shrink-0">
+                <ClipboardList className="w-6 h-6 text-teal-400" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-mono-custom text-teal-400 uppercase tracking-widest mb-1">// INTERACTIVE TOOL</div>
+                <h3 className="text-base font-display font-bold text-white mb-0.5">Pre-Demo Checklist</h3>
+                <p className="text-sm text-white/50 leading-relaxed">
+                  Interactive pre-flight checklist for your next customer demo. Covers Discovery, Golden Path, Technical Environment, Audience, MEDDPICC, and Day-Of execution. Progress saves automatically.
+                </p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-teal-400/50 group-hover:text-teal-400 transition-colors flex-shrink-0" />
+            </div>
+          </Link>
+        </motion.div>
         <div className="grid md:grid-cols-2 gap-5">
           {CHEAT_SHEETS.map((sheet, i) => {
             const colors = colorMap[sheet.color] || colorMap.teal;
@@ -392,11 +416,18 @@ export default function FieldNotesPage() {
           <p className="text-white/30 text-xs font-mono-custom uppercase tracking-wider mb-4">
             Demonstrate to Win · AI SE Training Program · Field Notes v1.0
           </p>
-          <Link href="/">
-            <button className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold text-sm px-5 py-2.5 rounded transition-colors">
-              Back to Training
-            </button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link href="/pre-demo-checklist">
+              <button className="inline-flex items-center gap-2 border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 text-sm px-5 py-2.5 rounded transition-colors">
+                <ClipboardList className="w-4 h-4" /> Pre-Demo Checklist
+              </button>
+            </Link>
+            <Link href="/">
+              <button className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold text-sm px-5 py-2.5 rounded transition-colors">
+                Back to Training
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

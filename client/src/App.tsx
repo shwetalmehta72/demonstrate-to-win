@@ -10,7 +10,7 @@ import ModulePage from "./pages/ModulePage";
 import LibraryPage from "./pages/LibraryPage";
 import FieldNotesPage from "./pages/FieldNotesPage";
 import CertificationPage from "./pages/CertificationPage";
-
+import PreDemoChecklistPage from "./pages/PreDemoChecklistPage";
 function Router() {
   return (
     <Switch>
@@ -19,6 +19,7 @@ function Router() {
       <Route path="/library" component={LibraryPage} />
       <Route path="/field-notes" component={FieldNotesPage} />
       <Route path="/certification" component={CertificationPage} />
+      <Route path="/pre-demo-checklist" component={PreDemoChecklistPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

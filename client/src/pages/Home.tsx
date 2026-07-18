@@ -3,8 +3,10 @@ import { MODULES, BONUS_MODULES, ALL_MODULES } from "@/lib/moduleData";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Trophy, Zap, Star, Lock, CheckCircle2, ChevronRight, BookOpen, Target, Shield, FileText, Menu, X } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
+import DailyChallenge from "@/components/DailyChallenge";
 
 // Style: Mission Control dark theme — home as "mission command center"
 // Colors: teal (primary), amber (accent), emerald (success), red (danger), purple (bonus)
@@ -55,6 +57,11 @@ export default function Home() {
                   <FileText className="w-3.5 h-3.5" />Field Notes
                 </button>
               </Link>
+              <Link href="/pre-demo-checklist">
+                <button className="flex items-center gap-1.5 text-white/50 hover:text-white/80 transition-colors text-xs font-mono-custom uppercase tracking-wider px-3 py-2 rounded hover:bg-white/5">
+                  <ClipboardList className="w-3.5 h-3.5" />Checklist
+                </button>
+              </Link>
               <Link href="/library">
                 <button className="flex items-center gap-1.5 text-white/50 hover:text-white/80 transition-colors text-xs font-mono-custom uppercase tracking-wider px-3 py-2 rounded hover:bg-white/5">
                   <BookOpen className="w-3.5 h-3.5" />Library
@@ -100,6 +107,7 @@ export default function Home() {
             >
               {[
                 { href: "/field-notes", icon: <FileText className="w-4 h-4" />, label: "Field Notes" },
+                { href: "/pre-demo-checklist", icon: <ClipboardList className="w-4 h-4" />, label: "Pre-Demo Checklist" },
                 { href: "/library", icon: <BookOpen className="w-4 h-4" />, label: "Library" },
                 { href: "/certification", icon: <Trophy className="w-4 h-4" />, label: "Certification" },
               ].map(item => (
@@ -189,7 +197,10 @@ export default function Home() {
       </div>
 
       {/* Core Modules Grid */}
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+      <div className="container mx-auto px-4 md:px-6 pt-8 pb-4">
+        <DailyChallenge />
+      </div>
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="mb-8 md:mb-10">
           <div className="text-xs font-mono-custom text-teal-400 uppercase tracking-widest mb-2">// CORE CURRICULUM</div>
           <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-2">Mission Modules</h2>
