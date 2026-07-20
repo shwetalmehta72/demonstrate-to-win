@@ -146,6 +146,7 @@ export const MODULES: Module[] = [
     accentColor: "emerald",
     estimatedMinutes: 25,
     xpReward: 250,
+    videoUrl: "/manus-storage/module2-explainer_d7ae9e1d.mp4",
     keyConceptSummary: "Bridge Building is the art of connecting your prospect's painful current state to a compelling future state powered by your solution. The bridge metaphor is central: some prospects will walk across willingly, others need handrails, and some will run back to the safety of the status quo. Your job is to make the bridge feel solid, safe, and worth crossing.",
     aiContext: "AI adoption is uniquely challenging because the 'valley' between current and future state is filled with fears: 'Will it replace my team?', 'What if the AI is wrong?', 'How long will implementation take?' Your bridge must address these fears explicitly, not just show the shiny future.",
     activities: [
@@ -243,6 +244,7 @@ export const MODULES: Module[] = [
     accentColor: "amber",
     estimatedMinutes: 30,
     xpReward: 300,
+    videoUrl: "/manus-storage/module3-explainer_2316a02a.mp4",
     keyConceptSummary: "Robert Riefstahl catalogued 28 'Demo Crimes' — common mistakes that sabotage software demonstrations. These range from the 'PowerPoint Crutch' to 'Data Dumping' to 'Zippy Mouse Syndrome.' In the world of AI demos, these crimes are even more dangerous because AI features are inherently complex and easy to misrepresent.",
     aiContext: "AI demos are uniquely crime-prone. The 'So What?' crime is rampant — SEs show impressive AI capabilities without connecting them to business value. 'Technobabble' is common — using terms like 'transformer architecture' and 'vector embeddings' with non-technical buyers. And 'The Magical Mystery Tour' is deadly — showing AI features without a clear narrative thread.",
     activities: [
@@ -343,6 +345,7 @@ export const MODULES: Module[] = [
     accentColor: "purple",
     estimatedMinutes: 25,
     xpReward: 250,
+    videoUrl: "/manus-storage/module4-explainer_ec7dfdf6.mp4",
     keyConceptSummary: "Discovery is the process of gathering the information you need to deliver a relevant, personalized demo. Riefstahl's framework asks three core questions: How is the process handled currently? How would you like to do it? What would be the impact? Great discovery means you never have to guess what to show — you know exactly which features matter to which people.",
     aiContext: "AI use cases are incredibly diverse. The same AI platform might be used for fraud detection, customer service automation, supply chain optimization, or HR analytics. Without discovery, you'll show the wrong use case to the wrong audience. Discovery on the Fly — gathering information even during the demo — is a critical skill for AI SEs.",
     activities: [
@@ -440,6 +443,7 @@ export const MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 20,
     xpReward: 200,
+    videoUrl: "/manus-storage/module5-explainer_7d249921.mp4",
     keyConceptSummary: "A demo room is never a monolith. You'll have champions, skeptics, economic buyers, technical evaluators, and end users — all with different agendas. Riefstahl's framework helps you identify personality types, manage difficult audience members, and ensure every stakeholder leaves feeling heard.",
     aiContext: "AI demos often attract mixed audiences: enthusiastic innovators who want to push AI to its limits, skeptical IT leaders worried about security and governance, and business leaders who just want to know if it works. Managing these competing agendas in real-time is a core SE skill.",
     activities: [
@@ -523,6 +527,7 @@ export const MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 20,
     xpReward: 200,
+    videoUrl: "/manus-storage/module6-explainer_e873ae40.mp4",
     keyConceptSummary: "Riefstahl dedicates significant attention to the mechanics of preparation: the environment setup, the data in your demo, the technical checklist, and the mental preparation. A demo that crashes, has bad data, or runs into technical issues loses credibility instantly. In AI demos, where live model inference can be slow or unpredictable, preparation is even more critical.",
     aiContext: "AI demos have unique preparation challenges: model latency can vary, live API calls can fail, and AI-generated outputs can be unpredictable. Best-in-class AI SEs prepare 'golden path' demos with pre-loaded data and expected outputs, while also being ready to handle live demonstrations when the prospect requests them.",
     activities: [
@@ -609,6 +614,7 @@ export const MODULES: Module[] = [
     accentColor: "emerald",
     estimatedMinutes: 25,
     xpReward: 300,
+    videoUrl: "/manus-storage/module7-explainer_3be81999.mp4",
     keyConceptSummary: "The Limbic Opening captures attention by connecting to the emotional, business-critical problem before any product is shown. The Value Close elevates the conversation from feature-level to departmental and strategic value, giving decision-makers the language they need to justify the purchase internally. Together, they form the bookends of a winning demo.",
     aiContext: "AI demos often start with 'Let me show you our platform' and end with 'Any questions?' Both are missed opportunities. A Limbic Opening for an AI solution should paint a vivid picture of the cost of NOT having AI. A Value Close should articulate the strategic advantage of AI adoption — not just the features you showed.",
     activities: [
@@ -743,6 +749,7 @@ export const BONUS_MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 30,
     xpReward: 300,
+    videoUrl: "/manus-storage/module8-explainer_a54a2df5.mp4",
     keyConceptSummary: "Chris White's Six Habits framework defines the disciplines that separate good SEs from great ones. The habits are: Partner (own the technical win), Probe (deep discovery), Prepare (obsessive readiness), Practice (deliberate rehearsal), Perform (presence and execution), and Perfect (continuous improvement). Together they form a complete operating system for the SE role.",
     aiContext: "In AI sales, the 'Partner' habit is especially critical — AI deals require deep technical credibility and tight AE alignment. The 'Probe' habit must go deeper than traditional software: you need to understand not just the business problem, but the data landscape, model governance concerns, and change management readiness.",
     activities: [
@@ -864,6 +871,7 @@ export const BONUS_MODULES: Module[] = [
     accentColor: "amber",
     estimatedMinutes: 30,
     xpReward: 300,
+    videoUrl: "/manus-storage/module9-explainer_1a6ab1af.mp4",
     keyConceptSummary: "The Challenger Sale research found that the highest-performing salespeople don't just build relationships — they teach prospects something new about their business, tailor their message to each stakeholder, and take control of the sales conversation. For SEs, this means bringing insight-led demos that reframe how the prospect thinks about their problem, not just showing features.",
     aiContext: "AI is the perfect domain for Challenger selling. Most buyers don't know what's possible with AI — they're anchored to their current manual processes. A Challenger SE uses the demo to teach: 'Did you know that 73% of the time your team spends on X is now automatable? Let me show you what that looks like.' This reframe creates urgency that relationship-building alone never could.",
     activities: [
@@ -984,6 +992,7 @@ export const BONUS_MODULES: Module[] = [
     accentColor: "purple",
     estimatedMinutes: 35,
     xpReward: 350,
+    videoUrl: "/manus-storage/module10-explainer_9106a27a.mp4",
     keyConceptSummary: "MEDDPICC is a qualification framework for complex B2B sales with eight elements. Each letter represents critical deal intelligence: Metrics (quantified business impact), Economic Buyer (who controls the budget), Decision Criteria (how they'll choose), Decision Process (how they'll decide), Paper Process (the legal/procurement/security steps required to execute a contract), Implicate Pain (the cost of inaction), Champion (your internal advocate), and Competition (who else is in the deal). Note: a seven-element variant called MEDDICC omits Paper Process — MEDDPICC includes it.",
     aiContext: "AI deals are particularly prone to 'demo theater' — impressive demonstrations that never convert because the deal was never properly qualified. AI budgets are often unallocated, decision processes involve data governance committees, and champions need to be technically credible enough to defend the solution internally. MEDDPICC discipline is what separates AI SEs who win from those who just demo.",
     activities: [
@@ -1121,6 +1130,7 @@ export const BONUS_MODULES: Module[] = [
     accentColor: "emerald",
     estimatedMinutes: 30,
     xpReward: 300,
+    videoUrl: "/manus-storage/module11-explainer_1bf7e733.mp4",
     keyConceptSummary: "Neil Rackham's SPIN Selling research, based on 35,000 sales calls, found that the best salespeople don't pitch — they ask four types of questions that lead the prospect to articulate their own need for your solution. SPIN stands for: Situation (understand the current state), Problem (surface the pain), Implication (expand the pain), and Need-Payoff (let the prospect articulate the value of solving it).",
     aiContext: "SPIN Selling is transformative for AI SE discovery because AI buyers often don't know what they need. They know they have a problem, but they haven't connected it to an AI solution. SPIN questions guide them from 'we have a data problem' to 'we need an AI solution that does X' — in their own words. When a prospect articulates the need themselves, they own the solution.",
     activities: [
