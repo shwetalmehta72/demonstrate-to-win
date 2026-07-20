@@ -4,7 +4,9 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { UserProvider } from "./contexts/UserContext";
 import { GameProvider } from "./contexts/GameContext";
+import WelcomeModal from "./components/WelcomeModal";
 import Home from "./pages/Home";
 import ModulePage from "./pages/ModulePage";
 import LibraryPage from "./pages/LibraryPage";
@@ -30,12 +32,15 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
+        <UserProvider>
         <GameProvider>
           <TooltipProvider>
             <Toaster />
+            <WelcomeModal />
             <Router />
           </TooltipProvider>
         </GameProvider>
+        </UserProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

@@ -1,9 +1,10 @@
 import { useParams, Link } from "wouter";
 import { ALL_MODULES } from "@/lib/moduleData";
 import { useGame, LEVEL_THRESHOLDS } from "@/contexts/GameContext";
+import { useUser } from "@/contexts/UserContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, CheckCircle2, Zap, ChevronRight, Lock, Shield, Activity, Target, Clock, Menu, X, Home, PlayCircle, Volume2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Zap, ChevronRight, Lock, Shield, Activity, Target, Clock, Menu, X, Home, PlayCircle, Volume2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import QuizActivity from "@/components/activities/QuizActivity";
 import DragDropActivity from "@/components/activities/DragDropActivity";
@@ -39,6 +40,7 @@ export default function ModulePage() {
   const moduleId = parseInt(params.id ?? "1");
   const module = ALL_MODULES.find(m => m.id === moduleId);
   const { isActivityCompleted, isModuleUnlocked, completeModule, state } = useGame();
+  const { profile } = useUser();
   const [activeActivity, setActiveActivity] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -156,6 +158,12 @@ export default function ModulePage() {
       {/* Operator Status */}
       <div className="p-4 border-b border-white/5">
         <div className="text-xs font-mono-custom text-white/30 uppercase tracking-wider mb-3">Operator Status</div>
+        {profile.name && (
+          <div className="flex items-center gap-2 mb-3 px-2 py-1.5 bg-white/3 rounded border border-white/5">
+            <User className="w-3 h-3 text-teal-400 flex-shrink-0" />
+            <span className="text-xs font-mono-custom text-white/60 truncate">{profile.name}</span>
+          </div>
+        )}
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <Zap className="w-3.5 h-3.5 text-teal-400" />

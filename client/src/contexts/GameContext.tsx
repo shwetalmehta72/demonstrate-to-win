@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { getOrCreateDeviceId } from "@/hooks/useDeviceId";
 
 export interface Badge {
   id: string;
@@ -53,7 +54,10 @@ const INITIAL_BADGES: Badge[] = [
 
 export const LEVEL_THRESHOLDS = [0, 100, 250, 450, 700, 1000, 1400, 1800, 2200, 2530]; // Calibrated to max 2530 XP from 32 activities
 
-const STORAGE_KEY = "dtw_game_state";
+// Storage key is namespaced per device UUID — each visitor has isolated progress
+function getStorageKey(): string {
+  return `dtw_game_state_${getOrCreateDeviceId()}`;
+}
 
 function computeLevel(xp: number): number {
   for (let i = LEVEL_THRESHOLDS.length - 1; i >= 0; i--) {
@@ -75,7 +79,7 @@ const GameContext = createContext<GameContextType | null>(null);
 export function GameProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<GameState>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(getStorageKey());
       if (saved) {
         const parsed = JSON.parse(saved);
         // Merge any new badges that don't exist in saved state
@@ -92,7 +96,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   const [xpAnimating, setXpAnimating] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    localStorage.setItem(getStorageKey(), JSON.stringify(state));
   }, [state]);
 
   const addXP = useCallback((amount: number) => {

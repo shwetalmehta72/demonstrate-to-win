@@ -1,8 +1,9 @@
 import { useGame, LEVEL_THRESHOLDS } from "@/contexts/GameContext";
+import { useUser } from "@/contexts/UserContext";
 import { MODULES, BONUS_MODULES, ALL_MODULES } from "@/lib/moduleData";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Trophy, Zap, Star, Lock, CheckCircle2, ChevronRight, BookOpen, Target, Shield, FileText, Menu, X } from "lucide-react";
+import { Trophy, Zap, Star, Lock, CheckCircle2, ChevronRight, BookOpen, Target, Shield, FileText, Menu, X, User } from "lucide-react";
 import { ClipboardList } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
@@ -21,6 +22,7 @@ const accentColors = {
 
 export default function Home() {
   const { state, isModuleCompleted, isModuleUnlocked } = useGame();
+  const { profile } = useUser();
   const currentLevelXP = LEVEL_THRESHOLDS[state.level - 1] ?? 0;
   const nextLevelXP = LEVEL_THRESHOLDS[state.level] ?? LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1];
   const levelProgress = nextLevelXP > currentLevelXP ? ((state.xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100 : 100;
@@ -73,6 +75,12 @@ export default function Home() {
                 </button>
               </Link>
               <div className="w-px h-4 bg-white/10 mx-1" />
+              {profile.name && (
+                <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
+                  <User className="w-3.5 h-3.5 text-teal-400" />
+                  <span className="font-mono-custom text-xs text-white font-medium max-w-[80px] truncate">{profile.name}</span>
+                </div>
+              )}
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
                 <Zap className="w-3.5 h-3.5 text-teal-400" />
                 <span className="font-mono-custom text-xs text-white font-medium">{state.xp} XP</span>
