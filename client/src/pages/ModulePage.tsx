@@ -3,7 +3,7 @@ import { ALL_MODULES } from "@/lib/moduleData";
 import { useGame, LEVEL_THRESHOLDS } from "@/contexts/GameContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, CheckCircle2, Zap, ChevronRight, Lock, Shield, Activity, Target, Clock, Menu, X, Home } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Zap, ChevronRight, Lock, Shield, Activity, Target, Clock, Menu, X, Home, PlayCircle, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import QuizActivity from "@/components/activities/QuizActivity";
 import DragDropActivity from "@/components/activities/DragDropActivity";
@@ -316,17 +316,46 @@ export default function ModulePage() {
                   <p className="text-white/55 text-base md:text-lg mb-5 md:mb-6">{module.subtitle}</p>
 
                   {/* Stats row */}
-                  <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-6 md:mb-8">
-                    <div className="flex items-center gap-2 text-xs font-mono-custom text-white/40">
-                      <Clock className="w-3.5 h-3.5" />{module.estimatedMinutes} min
+                 <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                   <div className="flex items-center gap-2 text-xs font-mono-custom text-white/40">
+                     <Clock className="w-3.5 h-3.5" />{module.estimatedMinutes} min
+                   </div>
+                   <div className="flex items-center gap-2 text-xs font-mono-custom text-white/40">
+                     <Target className="w-3.5 h-3.5" />{module.activities.length} activities
+                   </div>
+                   <div className={`flex items-center gap-2 text-xs font-mono-custom ${colors.text}`}>
+                     <Zap className="w-3.5 h-3.5" />+{module.xpReward} XP reward
+                   </div>
+                 </div>
+
+                  {/* Explainer Video — shown only for modules with a videoUrl */}
+                  {module.videoUrl && (
+                    <div className={`card-panel mb-6 overflow-hidden ${colors.border}`}>
+                      <div className={`flex items-center gap-2 px-4 py-2.5 border-b border-white/5 ${colors.bg}`}>
+                        <PlayCircle className={`w-3.5 h-3.5 ${colors.text}`} />
+                        <span className={`text-xs font-mono-custom uppercase tracking-widest ${colors.text}`}>// MODULE EXPLAINER</span>
+                        <span className="text-xs font-mono-custom text-white/30 ml-auto flex items-center gap-1"><Volume2 className="w-3 h-3" /> Audio narration included</span>
+                      </div>
+                      <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                        <video
+                          src={module.videoUrl}
+                          controls
+                          preload="metadata"
+                          className="w-full h-full object-cover bg-black"
+                          style={{ display: "block" }}
+                        >
+                          Your browser does not support the video element.
+                        </video>
+                      </div>
+                      <div className="px-4 py-3 flex items-center gap-3">
+                        <div className="flex-1">
+                          <div className="text-xs text-white/40 font-mono-custom">Watch before starting activities · ~{Math.ceil(101/60)} min</div>
+                        </div>
+                        <div className="text-xs font-mono-custom text-white/25">1080p · AAC</div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-mono-custom text-white/40">
-                      <Target className="w-3.5 h-3.5" />{module.activities.length} activities
-                    </div>
-                    <div className={`flex items-center gap-2 text-xs font-mono-custom ${colors.text}`}>
-                      <Zap className="w-3.5 h-3.5" />+{module.xpReward} XP reward
-                    </div>
-                  </div>
+                  )}
+
 
                   {/* Core Concept */}
                   <div className={`card-panel p-4 md:p-6 mb-4 ${colors.border}`}>

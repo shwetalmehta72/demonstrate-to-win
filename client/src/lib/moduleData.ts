@@ -20,6 +20,7 @@ export interface Module {
   keyConceptSummary: string;
   aiContext: string;
   activities: Activity[];
+  videoUrl?: string;
 }
 
 export const MODULES: Module[] = [
@@ -33,6 +34,7 @@ export const MODULES: Module[] = [
     accentColor: "teal",
     estimatedMinutes: 20,
     xpReward: 200,
+    videoUrl: "/manus-storage/module1-explainer_b4ff62e4.mp4",
     keyConceptSummary: "Tell-Show-Tell is the single most powerful demo technique. Before showing any feature, TELL the audience what they're about to see and why it matters. SHOW them the feature in under 5 minutes. Then TELL them the business benefits — connecting the feature to their specific pain points. Without this structure, complex AI demos overwhelm and confuse buyers.",
     aiContext: "AI solutions are inherently complex. A buyer watching an AI agent autonomously process data for the first time without context will think 'this looks complicated' — not 'this solves my problem.' The Opening Tell sets the stage so the AI's power lands as a solution, not a science project.",
     activities: [
