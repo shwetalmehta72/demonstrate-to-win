@@ -28,6 +28,8 @@ export default function Home() {
   const levelProgress = nextLevelXP > currentLevelXP ? ((state.xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100 : 100;
   const completedModules = ALL_MODULES.filter(m => isModuleCompleted(m.id)).length;
   const earnedBadges = state.badges.filter(b => b.earned).length;
+  // Derived from the curriculum so the headline can never drift from the data.
+  const totalActivities = ALL_MODULES.reduce((n, m) => n + m.activities.length, 0);
   const core7Done = [1,2,3,4,5,6,7].every(id => isModuleCompleted(id));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -155,11 +157,11 @@ export default function Home() {
               <span className="text-teal-400">a Bridge or a Wall.</span>
             </h1>
             <p className="text-base md:text-lg text-white/70 max-w-2xl mb-7 leading-relaxed">
-              Master the complete methodology from Robert Riefstahl's <em>Demonstrating to Win!</em> — adapted for the world of complex AI solutions. 11 modules. 32 interactive challenges. Two certifications.
+              Master the complete methodology from Robert Riefstahl's <em>Demonstrating to Win!</em> — adapted for the world of complex AI solutions. {`11 modules. ${totalActivities} interactive challenges. Two certifications.`}
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/50">
               <div className="flex items-center gap-2"><BookOpen className="w-4 h-4" /><span>11 Modules</span></div>
-              <div className="flex items-center gap-2"><Target className="w-4 h-4" /><span>32 Activities</span></div>
+              <div className="flex items-center gap-2"><Target className="w-4 h-4" /><span>{totalActivities} Activities</span></div>
               <div className="flex items-center gap-2"><Trophy className="w-4 h-4" /><span>12 Badges</span></div>
               <div className="flex items-center gap-2"><Shield className="w-4 h-4" /><span>2 Certifications</span></div>
             </div>
