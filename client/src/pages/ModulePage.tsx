@@ -13,6 +13,7 @@ import ScenarioActivity from "@/components/activities/ScenarioActivity";
 import CrimeDetectiveActivity from "@/components/activities/CrimeDetectiveActivity";
 import BuildDemoActivity from "@/components/activities/BuildDemoActivity";
 import FillBlankActivity from "@/components/activities/FillBlankActivity";
+import { Mark } from "@/components/Mark";
 
 // Style: Mission Control — module page as "active mission briefing console"
 // Mobile: sidebar collapses to slide-out drawer triggered from top bar
@@ -146,7 +147,7 @@ export default function ModulePage() {
       <div className="p-4 md:p-5 border-b border-white/5">
         <Link href="/" onClick={() => setSidebarOpen(false)}>
           <div className="flex items-center gap-2.5 cursor-pointer group">
-            <img src="/manus-storage/logo-icon_d2dd919d.png" alt="Logo" className="w-7 h-7 object-contain" />
+            <Mark className="w-7 h-7 text-teal-400" />
             <div>
               <div className="text-xs font-mono-custom text-teal-400/70 tracking-widest uppercase leading-none">DTW</div>
               <div className="text-xs text-white/50 group-hover:text-white/70 transition-colors">Dashboard</div>

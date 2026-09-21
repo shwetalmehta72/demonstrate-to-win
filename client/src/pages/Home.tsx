@@ -8,6 +8,7 @@ import { ClipboardList } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
 import DailyChallenge from "@/components/DailyChallenge";
+import { Mark } from "@/components/Mark";
 
 // Style: Mission Control dark theme — home as "mission command center"
 // Colors: teal (primary), amber (accent), emerald (success), red (danger), purple (bonus)
@@ -47,7 +48,7 @@ export default function Home() {
           {/* Nav */}
           <nav className="flex items-center justify-between mb-12 md:mb-16">
             <div className="flex items-center gap-2.5">
-              <img src="/manus-storage/logo-icon_d2dd919d.png" alt="Logo" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
+              <Mark className="w-8 h-8 md:w-9 md:h-9 text-teal-400" />
               <div>
                 <div className="text-xs font-mono-custom text-teal-400 tracking-widest uppercase leading-none">Mission Briefing</div>
                 <div className="text-sm font-display font-semibold text-white leading-tight">Demonstrate to Win</div>
